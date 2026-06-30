@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/tokens/colors.css">
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/tokens/typography.css">
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/tokens/radius.css">
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/tokens/shadow.css">
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/tokens/motion.css">
+<link rel="stylesheet" href="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/styles.css">
+<script src="_ds/integrations-hub-design-system-c1b980cb-7b53-4428-abc2-60a22ae4f15c/_ds_bundle.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 99px; border: 3px solid var(--bg-canvas); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+  @keyframes ihNode { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+  @keyframes ihRing { 0% { transform: scale(.6); opacity: .55; } 100% { transform: scale(1.8); opacity: 0; } }
+  @keyframes ihDash { to { stroke-dashoffset: -16; } }
+  @keyframes ihFade { from { transform: translateY(6px); } to { transform: none; } }
+  @keyframes ihSpin { to { transform: rotate(360deg); } }
+</style>
+</helmet>
+
+<div data-theme="{{ theme }}" style="min-height:100vh;background:var(--bg-canvas);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;">
+
+  <!-- ===================== LOGIN ===================== -->
+  <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}">
+  <div style="display:grid;grid-template-columns:1.05fr 1fr;min-height:100vh;">
+    <!-- left brand panel -->
+    <div style="position:relative;overflow:hidden;background:var(--neutral-950);color:#fff;padding:56px 60px;display:flex;flex-direction:column;justify-content:space-between;">
+      <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:.9;">
+        <g stroke="#5b4df0" stroke-width="1.1" opacity="0.4">
+          <line x1="120" y1="110" x2="300" y2="180"/><line x1="300" y1="180" x2="470" y2="120"/>
+          <line x1="300" y1="180" x2="250" y2="360"/><line x1="250" y1="360" x2="430" y2="420"/>
+          <line x1="430" y1="420" x2="470" y2="120"/><line x1="120" y1="110" x2="180" y2="320"/>
+          <line x1="180" y1="320" x2="250" y2="360"/><line x1="430" y1="420" x2="350" y2="540"/>
+          <line x1="180" y1="320" x2="80" y2="470"/><line x1="80" y1="470" x2="350" y2="540"/>
+        </g>
+        <g fill="#0ea5ba">
+          <circle cx="120" cy="110" r="4" style="animation:ihNode 3s ease-in-out infinite;"/>
+          <circle cx="470" cy="120" r="4" style="animation:ihNode 3s ease-in-out .4s infinite;"/>
+          <circle cx="250" cy="360" r="4" style="animation:ihNode 3s ease-in-out .8s infinite;"/>
+          <circle cx="350" cy="540" r="4" style="animation:ihNode 3s ease-in-out 1.2s infinite;"/>
+          <circle cx="80" cy="470" r="4" style="animation:ihNode 3s ease-in-out 1.6s infinite;"/>
+          <circle cx="180" cy="320" r="4" style="animation:ihNode 3s ease-in-out 2s infinite;"/>
+        </g>
+        <g fill="#5b4df0">
+          <circle cx="300" cy="180" r="6"/><circle cx="430" cy="420" r="6"/>
+        </g>
+      </svg>
+      <div style="position:relative;display:flex;align-items:center;gap:11px;">
+        <span style="width:34px;height:34px;border-radius:9px;background:var(--primary-600);display:inline-flex;align-items:center;justify-content:center;"><img src="assets/icon-white.png" width="21" alt="Integrations Hub"></span>
+        <span style="font-weight:700;font-size:16px;letter-spacing:-0.01em;">Integrations Hub</span>
+      </div>
+      <div style="position:relative;max-width:440px;">
+        <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:12px;font-weight:500;color:#c5cad4;margin-bottom:22px;">
+          <span style="width:6px;height:6px;border-radius:99px;background:var(--cyan-400);"></span>AI-native project intelligence
+        </div>
+        <h1 style="margin:0;font-size:38px;line-height:1.12;font-weight:700;letter-spacing:-0.025em;">Turn fragmented project signals into actionable intelligence</h1>
+        <p style="margin:20px 0 0;font-size:16px;line-height:1.55;color:#adb4c4;max-width:400px;">Connect your work systems, analyze delivery health, detect risks, and act faster with AI.</p>
+      </div>
+      <div style="position:relative;display:flex;gap:28px;font-size:13px;color:#7d8597;">
+        <div><span style="display:block;font-family:var(--font-mono);font-size:20px;font-weight:600;color:#fff;">9</span>connectors</div>
+        <div><span style="display:block;font-family:var(--font-mono);font-size:20px;font-weight:600;color:#fff;">12k+</span>signals / day</div>
+        <div><span style="display:block;font-family:var(--font-mono);font-size:20px;font-weight:600;color:#fff;">2 min</span>to decisions</div>
+      </div>
+    </div>
+    <!-- right form -->
+    <div style="display:flex;align-items:center;justify-content:center;padding:40px;background:var(--bg-surface);">
+      <div style="width:100%;max-width:380px;">
+        <h2 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-0.02em;">Sign in</h2>
+        <p style="margin:8px 0 26px;color:var(--text-secondary);font-size:14px;">Welcome back. Sign in to your workspace.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <label style="display:block;font-size:13px;font-weight:500;margin-bottom:6px;">Workspace URL</label>
+            <div style="display:flex;align-items:center;border:1px solid var(--border-default);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-surface);">
+              <input defaultValue="northwind" style="flex:1;min-width:0;border:0;outline:0;padding:0 12px;height:38px;font-size:14px;font-family:var(--font-sans);background:transparent;color:var(--text-primary);">
+              <span style="padding:0 12px;height:38px;display:flex;align-items:center;font-size:13px;color:var(--text-tertiary);font-family:var(--font-mono);background:var(--bg-sunken);border-left:1px solid var(--border-subtle);">.integrationshub.io</span>
+            </div>
+          </div>
+          <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Input" label="Email" type="email" default-value="jayesh@northwind.com" placeholder="you@company.com" hint-size="100%,66px"></x-import>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;"><label style="font-size:13px;font-weight:500;">Password</label><a style="font-size:12.5px;color:var(--text-link);font-weight:500;cursor:pointer;text-decoration:none;">Forgot password?</a></div>
+            <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Input" type="password" default-value="superSecret" hint-size="100%,40px"></x-import>
+          </div>
+          <label style="display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--text-secondary);cursor:pointer;user-select:none;">
+            <input type="checkbox" defaultChecked style="width:16px;height:16px;accent-color:var(--primary-600);">Remember me for 30 days
+          </label>
+          <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Button" variant="primary" full-width="{{ true }}" onClick="{{ login }}" hint-size="100%,40px">Sign in</x-import>
+          <div style="display:flex;align-items:center;gap:12px;color:var(--text-tertiary);font-size:12px;"><span style="flex:1;height:1px;background:var(--border-subtle);"></span>or continue with<span style="flex:1;height:1px;background:var(--border-subtle);"></span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <button onClick="{{ login }}" style="display:flex;align-items:center;justify-content:center;gap:8px;height:40px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-primary);font-size:13.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--bg-hover);">
+              <svg width="16" height="16" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" fill="#f25022"/><rect x="13" y="3" width="8" height="8" fill="#7fba00"/><rect x="3" y="13" width="8" height="8" fill="#00a4ef"/><rect x="13" y="13" width="8" height="8" fill="#ffb900"/></svg>SSO
+            </button>
+            <button onClick="{{ login }}" style="display:flex;align-items:center;justify-content:center;gap:8px;height:40px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-primary);font-size:13.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--bg-hover);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Okta
+            </button>
+          </div>
+        </div>
+        <p style="margin:24px 0 0;text-align:center;font-size:13px;color:var(--text-tertiary);">New to Integrations Hub? <a onClick="{{ login }}" style="color:var(--text-link);font-weight:500;cursor:pointer;">Create workspace</a></p>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== APP ===================== -->
+  <sc-if value="{{ isApp }}" hint-placeholder-val="{{ true }}">
+  <div style="display:grid;grid-template-columns:248px 1fr;min-height:100vh;">
+
+    <!-- SIDEBAR -->
+    <aside style="position:sticky;top:0;height:100vh;background:var(--bg-surface);border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;padding:16px 14px;gap:4px;">
+      <div style="display:flex;align-items:center;gap:10px;padding:6px 8px 16px;">
+        <span style="width:30px;height:30px;border-radius:8px;background:var(--primary-600);display:inline-flex;align-items:center;justify-content:center;flex:none;"><img src="assets/icon-white.png" width="19" alt=""></span>
+        <span style="font-weight:700;font-size:15px;letter-spacing:-0.01em;">Integrations Hub</span>
+      </div>
+
+      <button onClick="{{ goDashboard }}" style="display:flex;align-items:center;gap:11px;padding:9px 10px;border:0;border-radius:var(--radius-md);background:{{ navDashBg }};color:{{ navDashFg }};font-size:14px;font-weight:500;font-family:var(--font-sans);cursor:pointer;text-align:left;" style-hover="background:var(--bg-hover);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Dashboard
+      </button>
+      <button onClick="{{ goProjects }}" style="display:flex;align-items:center;gap:11px;padding:9px 10px;border:0;border-radius:var(--radius-md);background:{{ navProjBg }};color:{{ navProjFg }};font-size:14px;font-weight:500;font-family:var(--font-sans);cursor:pointer;text-align:left;" style-hover="background:var(--bg-hover);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/><path d="M8 11v5"/><path d="M12 11v3"/><path d="M16 11v6"/></svg>Projects
+      </button>
+      <button onClick="{{ goAI }}" style="display:flex;align-items:center;gap:11px;padding:9px 10px;border:0;border-radius:var(--radius-md);background:{{ navAIBg }};color:{{ navAIFg }};font-size:14px;font-weight:500;font-family:var(--font-sans);cursor:pointer;text-align:left;" style-hover="background:var(--bg-hover);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0Z"/><path d="M20 3v4M22 5h-4"/></svg>AI Workspace
+      </button>
+      <button onClick="{{ goSettings }}" style="display:flex;align-items:center;gap:11px;padding:9px 10px;border:0;border-radius:var(--radius-md);background:{{ navSetBg }};color:{{ navSetFg }};font-size:14px;font-weight:500;font-family:var(--font-sans);cursor:pointer;text-align:left;" style-hover="background:var(--bg-hover);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Settings
+      </button>
+
+      <div style="flex:1;"></div>
+
+      <div style="border-top:1px solid var(--border-subtle);padding-top:12px;display:flex;flex-direction:column;gap:4px;">
+        <button onClick="{{ goSettings }}" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:0;border-radius:var(--radius-md);background:transparent;cursor:pointer;text-align:left;font-family:var(--font-sans);" style-hover="background:var(--bg-hover);">
+          <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Avatar" name="{{ userName }}" size="sm" status="online" hint-size="32px,32px"></x-import>
+          <span style="min-width:0;"><span style="display:block;font-size:13.5px;font-weight:600;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ userName }}</span><span style="display:block;font-size:12px;color:var(--text-tertiary);">{{ roleLabel }}</span></span>
+        </button>
+        <button onClick="{{ logout }}" style="display:flex;align-items:center;gap:11px;padding:9px 10px;border:0;border-radius:var(--radius-md);background:transparent;color:var(--text-secondary);font-size:14px;font-weight:500;font-family:var(--font-sans);cursor:pointer;text-align:left;" style-hover="background:var(--bg-hover);color:var(--danger);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>Log out
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <div style="display:flex;flex-direction:column;min-width:0;">
+      <!-- TOPBAR -->
+      <header style="position:sticky;top:0;z-index:20;height:56px;flex:none;background:color-mix(in srgb, var(--bg-surface) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:16px;padding:0 24px;">
+        <h2 style="margin:0;font-size:16px;font-weight:600;letter-spacing:-0.01em;">{{ pageTitle }}</h2>
+        <button onClick="{{ openRoleModal }}" style="display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border:1px solid var(--border-subtle);border-radius:999px;background:var(--bg-surface-2);font-size:12px;font-weight:600;color:var(--text-secondary);font-family:var(--font-sans);cursor:pointer;" style-hover="border-color:var(--border-strong);">
+          <span style="width:6px;height:6px;border-radius:99px;background:var(--accent);"></span>{{ roleLabel }}
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.6;"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div style="flex:1;"></div>
+        <div style="display:flex;align-items:center;width:240px;height:36px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);padding:0 12px;gap:8px;color:var(--text-tertiary);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input placeholder="Search projects, conflicts…" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:13.5px;font-family:var(--font-sans);color:var(--text-primary);">
+        </div>
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-secondary);cursor:pointer;" style-hover="background:var(--bg-hover);">
+          <sc-if value="{{ isDark }}" hint-placeholder-val="{{ true }}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></sc-if>
+          <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></sc-if>
+        </button>
+        <button aria-label="Notifications" style="position:relative;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-secondary);cursor:pointer;" style-hover="background:var(--bg-hover);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <span style="position:absolute;top:7px;right:8px;width:7px;height:7px;border-radius:99px;background:var(--danger);border:1.5px solid var(--bg-surface);"></span>
+        </button>
+      </header>
+
+      <!-- PAGE BODY -->
+      <main style="flex:1;min-width:0;padding:28px 32px 48px;">
+
+        <!-- ===== PM DASHBOARD ===== -->
+        <sc-if value="{{ isPMDash }}" hint-placeholder-val="{{ true }}">
+        <div style="max-width:1240px;margin:0 auto;animation:ihFade .4s ease forwards;
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px;">
+            <div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;">{{ today }}</div>
+              <h1 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em;">{{ greeting }}, {{ firstName }}</h1>
+              <p style="margin:8px 0 0;font-size:15px;color:var(--text-secondary);max-width:620px;">{{ workloadSummary }}</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:4px;background:var(--bg-surface-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);">
+              <button onClick="{{ setLayoutFocused }}" style="padding:6px 12px;border:0;border-radius:var(--radius-sm);font-size:12.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ lf_bg }};color:{{ lf_fg }};">Focused</button>
+              <button onClick="{{ setLayoutSplit }}" style="padding:6px 12px;border:0;border-radius:var(--radius-sm);font-size:12.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ ls_bg }};color:{{ ls_fg }};">Split</button>
+              <button onClick="{{ setLayoutTriage }}" style="padding:6px 12px;border:0;border-radius:var(--radius-sm);font-size:12.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ lt_bg }};color:{{ lt_fg }};">Triage</button>
+            </div>
+          </div>
+
+          <!-- grid -->
+          <div style="display:grid;gap:18px;grid-template-columns:{{ dashCols }};grid-auto-rows:min-content;">
+
+            <!-- KPIs -->
+            <section style="grid-column:{{ pKpisCol }};grid-row:{{ pKpisRow }};min-width:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+              <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;">
+                <div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">{{ k1label }}</div>
+                <div style="font-size:30px;font-weight:700;font-family:var(--font-mono);letter-spacing:-0.02em;margin-top:8px;line-height:1;">{{ k1 }}</div>
+                <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">{{ k1sub }}</div>
+              </div>
+              <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;">
+                <div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">{{ k2label }}</div>
+                <div style="font-size:30px;font-weight:700;font-family:var(--font-mono);letter-spacing:-0.02em;margin-top:8px;line-height:1;color:var(--success);">{{ k2 }}</div>
+                <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">{{ k2sub }}</div>
+              </div>
+              <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;position:relative;">
+                <div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">{{ k3label }}</div>
+                <div style="font-size:30px;font-weight:700;font-family:var(--font-mono);letter-spacing:-0.02em;margin-top:8px;line-height:1;color:var(--danger);">{{ k3 }}</div>
+                <div style="font-size:12px;color:var(--danger);margin-top:8px;font-weight:500;">{{ k3sub }}</div>
+              </div>
+              <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;">
+                <div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">{{ k4label }}</div>
+                <div style="font-size:30px;font-weight:700;font-family:var(--font-mono);letter-spacing:-0.02em;margin-top:8px;line-height:1;">{{ k4 }}</div>
+                <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">{{ k4sub }}</div>
+              </div>
+            </section>
+
+            <!-- AI ACTION ITEMS -->
+            <section style="grid-column:{{ pActionsCol }};grid-row:{{ pActionsRow }};min-width:0;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border-subtle);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="width:26px;height:26px;border-radius:7px;background:var(--accent-subtle);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0Z"/></svg></span>
+                  <div><div style="font-size:15px;font-weight:600;">AI action items</div><div style="font-size:12px;color:var(--text-tertiary);">Concrete next steps, ranked by impact</div></div>
+                </div>
+                <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Badge" color="accent" variant="soft" hint-size="auto,22px">{{ pendingCount }} open</x-import>
+              </div>
+              <div>
+                <sc-for list="{{ actions }}" as="a" hint-placeholder-count="4">
+                  <div style="display:flex;align-items:flex-start;gap:14px;padding:15px 20px;border-bottom:1px solid var(--border-subtle);opacity:{{ a.opacity }};">
+                    <span style="margin-top:2px;flex:none;display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ a.prioBg }};color:{{ a.prioFg }};">{{ a.prioLabel }}</span>
+                    <div style="flex:1;min-width:0;">
+                      <div style="font-size:14px;font-weight:600;line-height:1.35;">{{ a.action }}</div>
+                      <div style="font-size:12.5px;color:var(--text-tertiary);margin-top:4px;display:flex;flex-wrap:wrap;gap:4px 10px;"><span>{{ a.project }}</span><span>· Owner {{ a.owner }}</span><span>· Due {{ a.due }}</span></div>
+                    </div>
+                    <div style="flex:none;display:flex;align-items:center;gap:7px;">
+                      <sc-if value="{{ a.isOpen }}" hint-placeholder-val="{{ true }}">
+                        <button onClick="{{ a.complete }}" style="display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 11px;border:0;border-radius:var(--radius-md);background:var(--accent);color:#fff;font-size:12.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--accent-hover);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete</button>
+                        <button onClick="{{ a.snooze }}" style="height:30px;padding:0 10px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-secondary);font-size:12.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--bg-hover);">Snooze</button>
+                        <button onClick="{{ a.escalate }}" style="height:30px;padding:0 10px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--danger);font-size:12.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--danger-subtle);">Escalate</button>
+                      </sc-if>
+                      <sc-if value="{{ a.isDone }}" hint-placeholder-val="{{ false }}">
+                        <span style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:{{ a.doneColor }};">{{ a.doneLabel }}</span>
+                      </sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+
+            <!-- CONFLICTS -->
+            <section style="grid-column:{{ pConflictsCol }};grid-row:{{ pConflictsRow }};min-width:0;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border-subtle);">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="width:26px;height:26px;border-radius:7px;background:var(--danger-subtle);color:var(--danger);display:inline-flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+                  <div><div style="font-size:15px;font-weight:600;">Active conflicts</div><div style="font-size:12px;color:var(--text-tertiary);">Detected across connected tools</div></div>
+                </div>
+              </div>
+              <div style="padding:16px 20px;display:flex;flex-direction:column;gap:14px;">
+                <sc-for list="{{ conflicts }}" as="c" hint-placeholder-count="2">
+                  <div style="border:1px solid var(--border-subtle);border-left:3px solid {{ c.sevColor }};border-radius:var(--radius-md);padding:14px;background:var(--bg-surface-2);">
+                    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                      <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ c.sevBg }};color:{{ c.sevFg }};">{{ c.sevLabel }}</span>
+                      <span style="font-size:12.5px;font-weight:600;color:var(--text-secondary);">{{ c.type }}</span>
+                      <span style="font-size:12px;color:var(--text-tertiary);margin-left:auto;">{{ c.project }}</span>
+                    </div>
+                    <p style="margin:10px 0 0;font-size:13.5px;line-height:1.5;color:var(--text-primary);">{{ c.summary }}</p>
+                    <div style="margin-top:10px;background:var(--accent-subtle);border-radius:var(--radius-sm);padding:9px 11px;">
+                      <div style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent);margin-bottom:3px;">Suggested resolution</div>
+                      <div style="font-size:13px;line-height:1.45;color:var(--text-primary);">{{ c.resolution }}</div>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+                      <span style="font-size:12px;color:var(--text-tertiary);">{{ c.stakeholders }}</span>
+                      <div style="display:flex;gap:7px;">
+                        <button onClick="{{ c.investigate }}" style="height:30px;padding:0 11px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-secondary);font-size:12.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--bg-hover);">Ask AI</button>
+                        <button onClick="{{ c.resolve }}" style="height:30px;padding:0 11px;border:0;border-radius:var(--radius-md);background:var(--accent);color:#fff;font-size:12.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--accent-hover);">Resolve</button>
+                      </div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+
+            <!-- PROJECT HEALTH -->
+            <section style="grid-column:{{ pHealthCol }};grid-row:{{ pHealthRow }};min-width:0;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border-subtle);">
+                <div><div style="font-size:15px;font-weight:600;">Project health</div><div style="font-size:12px;color:var(--text-tertiary);">Health derived from delivery, conflict & communication signals</div></div>
+                <button onClick="{{ goProjects }}" style="font-size:12.5px;font-weight:600;color:var(--text-link);background:none;border:0;cursor:pointer;font-family:var(--font-sans);">View all</button>
+              </div>
+              <div style="padding:18px 20px;display:grid;grid-template-columns:{{ healthCols }};gap:14px;">
+                <sc-for list="{{ healthProjects }}" as="p" hint-placeholder-count="3">
+                  <div onClick="{{ p.open }}" style="border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:15px;cursor:pointer;background:var(--bg-surface);transition:box-shadow .14s,border-color .14s;" style-hover="box-shadow:var(--shadow-md);border-color:var(--border-strong);">
+                    <div style="display:flex;align-items:flex-start;gap:12px;">
+                      <div style="position:relative;width:54px;height:54px;flex:none;">
+                        <svg width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="22" fill="none" stroke="var(--bg-sunken)" stroke-width="5"/><circle cx="27" cy="27" r="22" fill="none" stroke="{{ p.healthColor }}" stroke-width="5" stroke-linecap="round" stroke-dasharray="138.23" stroke-dashoffset="{{ p.healthDash }}" transform="rotate(-90 27 27)"/></svg>
+                        <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:15px;font-weight:600;">{{ p.health }}</span>
+                      </div>
+                      <div style="min-width:0;flex:1;">
+                        <div style="font-size:14px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ p.name }}</div>
+                        <div style="font-size:12px;color:var(--text-tertiary);margin-top:2px;">{{ p.client }}</div>
+                        <span style="display:inline-flex;align-items:center;gap:5px;margin-top:7px;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ p.statusBg }};color:{{ p.statusFg }};"><span style="width:6px;height:6px;border-radius:99px;background:{{ p.statusFg }};"></span>{{ p.statusLabel }}</span>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;">
+                      <sc-for list="{{ p.factors }}" as="f" hint-placeholder-count="2">
+                        <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:var(--radius-sm);font-size:11.5px;font-weight:500;background:var(--bg-sunken);color:var(--text-secondary);"><span style="width:6px;height:6px;border-radius:99px;background:{{ f.color }};"></span>{{ f.label }}</span>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+
+            <!-- DAILY BRIEFING -->
+            <section style="grid-column:{{ pBriefingCol }};grid-row:{{ pBriefingRow }};min-width:0;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;">
+              <div style="padding:16px 20px;border-bottom:1px solid var(--border-subtle);display:flex;align-items:flex-start;justify-content:space-between;gap:10px;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="width:26px;height:26px;border-radius:7px;background:var(--accent-2-subtle);color:var(--accent-2);display:inline-flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span>
+                  <div><div style="font-size:15px;font-weight:600;">Daily briefing</div><div style="font-size:12px;color:var(--text-tertiary);">{{ briefingMeta }}</div></div>
+                </div>
+              </div>
+              <div style="padding:6px 20px 18px;">
+                <div style="margin-top:14px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);">What changed</div>
+                <sc-for list="{{ briefChanged }}" as="b" hint-placeholder-count="2"><div style="display:flex;gap:9px;margin-top:8px;font-size:13.5px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--text-tertiary);flex:none;"></span><span>{{ b }}</span></div></sc-for>
+                <div style="margin-top:16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--warning);">New risks</div>
+                <sc-for list="{{ briefRisks }}" as="b" hint-placeholder-count="2"><div style="display:flex;gap:9px;margin-top:8px;font-size:13.5px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--warning);flex:none;"></span><span>{{ b }}</span></div></sc-for>
+                <div style="margin-top:16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--danger);">New blockers</div>
+                <sc-for list="{{ briefBlockers }}" as="b" hint-placeholder-count="1"><div style="display:flex;gap:9px;margin-top:8px;font-size:13.5px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--danger);flex:none;"></span><span>{{ b }}</span></div></sc-for>
+                <div style="margin-top:16px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);">Recommended next steps</div>
+                <sc-for list="{{ briefNext }}" as="b" hint-placeholder-count="2"><div style="display:flex;gap:9px;margin-top:8px;font-size:13.5px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none;"></span><span>{{ b }}</span></div></sc-for>
+                <button onClick="{{ goAI }}" style="margin-top:18px;width:100%;height:36px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-primary);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;" style-hover="background:var(--bg-hover);">Open in AI Workspace<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
+              </div>
+            </section>
+
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== ADMIN DASHBOARD ===== -->
+        <sc-if value="{{ isAdminDash }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1240px;margin:0 auto;animation:ihFade .4s ease forwards;">
+          <div style="margin-bottom:24px;">
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;">{{ today }}</div>
+            <h1 style="margin:0;font-size:28px;font-weight:700;letter-spacing:-0.02em;">{{ greeting }}, {{ firstName }}</h1>
+            <p style="margin:8px 0 0;font-size:15px;color:var(--text-secondary);max-width:640px;">{{ workloadSummary }}</p>
+          </div>
+
+          <!-- executive KPIs -->
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px;">
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;"><div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">Active projects</div><div style="font-size:30px;font-weight:700;font-family:var(--font-mono);margin-top:8px;line-height:1;">{{ orgTotal }}</div></div>
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;"><div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">On track</div><div style="font-size:30px;font-weight:700;font-family:var(--font-mono);margin-top:8px;line-height:1;color:var(--success);">{{ orgOn }}</div></div>
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;"><div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">Off track</div><div style="font-size:30px;font-weight:700;font-family:var(--font-mono);margin-top:8px;line-height:1;color:var(--danger);">{{ orgOff }}</div></div>
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:16px 18px;"><div style="font-size:12.5px;color:var(--text-tertiary);font-weight:500;">Active conflicts</div><div style="font-size:30px;font-weight:700;font-family:var(--font-mono);margin-top:8px;line-height:1;color:var(--warning);">{{ orgConflicts }}</div></div>
+            <div style="background:var(--accent);border:1px solid var(--accent);border-radius:var(--radius-lg);box-shadow:var(--shadow-accent);padding:16px 18px;color:#fff;"><div style="font-size:12.5px;opacity:.85;font-weight:500;">Org health score</div><div style="font-size:30px;font-weight:700;font-family:var(--font-mono);margin-top:8px;line-height:1;">{{ orgHealthScore }}</div></div>
+          </div>
+
+          <!-- portfolio + org health -->
+          <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:18px;margin-bottom:18px;align-items:start;">
+            <!-- portfolio table -->
+            <section style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border-subtle);">
+                <div><div style="font-size:15px;font-weight:600;">Portfolio overview</div><div style="font-size:12px;color:var(--text-tertiary);">All active projects across the organization</div></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1.8fr 0.8fr 1.2fr 0.9fr 0.9fr 1fr;gap:0;padding:0 6px;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);border-bottom:1px solid var(--border-subtle);">
+                <div style="padding:10px 14px;">Project</div><div style="padding:10px 8px;">Health</div><div style="padding:10px 8px;">Progress</div><div style="padding:10px 8px;">Conf.</div><div style="padding:10px 8px;">Priority</div><div style="padding:10px 8px;">PM</div>
+              </div>
+              <sc-for list="{{ portfolio }}" as="p" hint-placeholder-count="6">
+                <div onClick="{{ p.open }}" style="display:grid;grid-template-columns:1.8fr 0.8fr 1.2fr 0.9fr 0.9fr 1fr;align-items:center;padding:0 6px;border-bottom:1px solid var(--border-subtle);cursor:pointer;" style-hover="background:var(--bg-hover);">
+                  <div style="padding:12px 14px;min-width:0;"><div style="font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ p.name }}</div><div style="font-size:11.5px;color:var(--text-tertiary);">{{ p.client }}</div></div>
+                  <div style="padding:12px 8px;display:flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:99px;background:{{ p.statusFg }};"></span><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;">{{ p.health }}</span></div>
+                  <div style="padding:12px 8px;"><div style="height:6px;background:var(--bg-sunken);border-radius:99px;overflow:hidden;"><div style="height:100%;width:{{ p.progress }}%;background:{{ p.progressTone }};border-radius:99px;"></div></div><div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono);margin-top:3px;">{{ p.progress }}%</div></div>
+                  <div style="padding:12px 8px;font-family:var(--font-mono);font-size:13px;font-weight:600;color:{{ p.confColor }};">{{ p.confidence }}%</div>
+                  <div style="padding:12px 8px;"><span style="display:inline-flex;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ p.prioBg }};color:{{ p.prioFg }};">{{ p.prioLabel }}</span></div>
+                  <div style="padding:12px 8px;font-size:12.5px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ p.pm }}</div>
+                </div>
+              </sc-for>
+            </section>
+            <!-- org health -->
+            <section style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+              <div style="padding:16px 20px;border-bottom:1px solid var(--border-subtle);"><div style="font-size:15px;font-weight:600;">Organization health</div><div style="font-size:12px;color:var(--text-tertiary);">Composite of delivery, conflict, risk & resource signals</div></div>
+              <div style="padding:18px 20px;">
+                <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px;">
+                  <div style="position:relative;width:72px;height:72px;flex:none;"><svg width="72" height="72" viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="var(--bg-sunken)" stroke-width="7"/><circle cx="36" cy="36" r="30" fill="none" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="55" transform="rotate(-90 36 36)"/></svg><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:20px;font-weight:700;">{{ orgHealthScore }}</span></div>
+                  <div><div style="font-size:13.5px;font-weight:600;">Stable, monitor closely</div><div style="font-size:12.5px;color:var(--text-secondary);margin-top:3px;line-height:1.4;">Resource health is dragging the composite. Two projects need intervention.</div></div>
+                </div>
+                <sc-for list="{{ orgHealthBreakdown }}" as="h" hint-placeholder-count="5">
+                  <div style="margin-top:12px;"><div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px;"><span style="color:var(--text-secondary);">{{ h.label }}</span><span style="font-family:var(--font-mono);font-weight:600;">{{ h.val }}</span></div><div style="height:6px;background:var(--bg-sunken);border-radius:99px;overflow:hidden;"><div style="height:100%;width:{{ h.val }}%;background:{{ h.tone }};border-radius:99px;"></div></div></div>
+                </sc-for>
+              </div>
+            </section>
+          </div>
+
+          <!-- resources + action queue -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;align-items:start;">
+            <section style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+              <div style="padding:16px 20px;border-bottom:1px solid var(--border-subtle);"><div style="font-size:15px;font-weight:600;">Resource utilization</div><div style="font-size:12px;color:var(--text-tertiary);">Capacity by department</div></div>
+              <div style="padding:18px 20px;display:flex;flex-direction:column;gap:16px;">
+                <sc-for list="{{ resources }}" as="r" hint-placeholder-count="5">
+                  <div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;"><span style="font-size:13.5px;font-weight:600;">{{ r.dept }}</span><span style="display:inline-flex;align-items:center;gap:8px;"><span style="font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:{{ r.stateBg }};color:{{ r.stateFg }};">{{ r.stateLabel }}</span><span style="font-family:var(--font-mono);font-size:12.5px;color:var(--text-secondary);">{{ r.alloc }}%</span></span></div>
+                    <div style="height:8px;background:var(--bg-sunken);border-radius:99px;overflow:hidden;"><div style="height:100%;width:{{ r.barWidth }}%;background:{{ r.barColor }};border-radius:99px;"></div></div>
+                    <div style="font-size:11.5px;color:var(--text-tertiary);margin-top:4px;">{{ r.people }} people</div>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+            <section style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+              <div style="display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--border-subtle);">
+                <span style="width:26px;height:26px;border-radius:7px;background:var(--accent-subtle);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0Z"/></svg></span>
+                <div><div style="font-size:15px;font-weight:600;">Organization action queue</div><div style="font-size:12px;color:var(--text-tertiary);">Strategic recommendations, by business impact</div></div>
+              </div>
+              <div style="padding:8px 20px 16px;">
+                <sc-for list="{{ orgQueue }}" as="o" hint-placeholder-count="4">
+                  <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-subtle);">
+                    <span style="margin-top:1px;flex:none;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ o.impactBg }};color:{{ o.impactFg }};">{{ o.impact }}</span>
+                    <div style="flex:1;min-width:0;"><div style="font-size:13.5px;font-weight:600;line-height:1.35;">{{ o.title }}</div><div style="font-size:12.5px;color:var(--text-tertiary);margin-top:3px;line-height:1.4;">{{ o.detail }}</div></div>
+                    <button onClick="{{ o.act }}" style="flex:none;height:30px;padding:0 12px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-primary);font-size:12.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--bg-hover);">Action</button>
+                  </div>
+                </sc-for>
+              </div>
+            </section>
+          </div>
+
+          <!-- executive briefing -->
+          <section style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--border-subtle);">
+              <span style="width:26px;height:26px;border-radius:7px;background:var(--accent-2-subtle);color:var(--accent-2);display:inline-flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span>
+              <div><div style="font-size:15px;font-weight:600;">Executive AI briefing</div><div style="font-size:12px;color:var(--text-tertiary);">For leadership · generated 7:30 AM</div></div>
+            </div>
+            <div style="padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+              <div>
+                <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;">Portfolio summary</div>
+                <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--text-primary);">The portfolio is stable at a {{ orgHealthScore }} health score, with {{ orgOn }} of {{ orgTotal }} projects on track. Momentum is strong on Quantum Payments and Atlas; risk is concentrated in two health-care engagements where resource and dependency constraints overlap.</p>
+                <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--warning);margin:18px 0 8px;">Major risks</div>
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.45;margin-bottom:7px;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--warning);flex:none;"></span><span>Engineering is over-allocated at 104% — the binding constraint across 3 off-track projects.</span></div>
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--warning);flex:none;"></span><span>Beacon Analytics delivery confidence is 41% and trending down.</span></div>
+              </div>
+              <div>
+                <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--danger);margin-bottom:8px;">Emerging conflicts</div>
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.45;margin-bottom:7px;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--danger);flex:none;"></span><span>Cross-team dependency conflict between Beacon and Helix is blocking two teams.</span></div>
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--danger);flex:none;"></span><span>Repeated scope creep on Orion is straining the Vertex relationship.</span></div>
+                <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);margin:18px 0 8px;">Recommended decisions</div>
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.45;margin-bottom:7px;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none;"></span><span>Approve QA contractor backfill to relieve the capacity constraint.</span></div>
+                <div style="display:flex;gap:9px;font-size:13.5px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none;"></span><span>Reallocate 2 senior engineers from Vega to Beacon this week.</span></div>
+              </div>
+            </div>
+          </section>
+        </div>
+        </sc-if>
+
+        <!-- ===== PROJECTS MODULE ===== -->
+        <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1240px;margin:0 auto;animation:ihFade .4s ease forwards;">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:20px;">
+            <div><h1 style="margin:0;font-size:26px;font-weight:700;letter-spacing:-0.02em;">Projects</h1><p style="margin:7px 0 0;font-size:14px;color:var(--text-secondary);">{{ cAll }} projects · health derived continuously from connected tools</p></div>
+            <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Button" variant="primary" hint-size="150px,36px">New project</x-import>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap;">
+            <div style="display:flex;gap:4px;background:var(--bg-surface-2);border:1px solid var(--border-subtle);padding:4px;border-radius:var(--radius-md);">
+              <button onClick="{{ filterAll }}" style="padding:6px 13px;border:0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ fAllBg }};color:{{ fAllFg }};">All {{ cAll }}</button>
+              <button onClick="{{ filterOn }}" style="padding:6px 13px;border:0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ fOnBg }};color:{{ fOnFg }};">On track {{ cOn }}</button>
+              <button onClick="{{ filterOff }}" style="padding:6px 13px;border:0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ fOffBg }};color:{{ fOffFg }};">Off track {{ cOff }}</button>
+            </div>
+            <div style="flex:1;"></div>
+            <div style="display:flex;align-items:center;width:240px;height:36px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);padding:0 12px;gap:8px;color:var(--text-tertiary);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input value="{{ projSearch }}" onInput="{{ onSearch }}" placeholder="Search projects…" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:13.5px;font-family:var(--font-sans);color:var(--text-primary);">
+            </div>
+            <select onChange="{{ onSort }}" value="{{ projSort }}" style="height:36px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-primary);font-size:13px;font-weight:500;font-family:var(--font-sans);padding:0 12px;cursor:pointer;">
+              <option value="updated">Last updated</option><option value="health">Health</option><option value="progress">Progress</option><option value="name">Name</option>
+            </select>
+          </div>
+
+          <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+            <div style="display:grid;grid-template-columns:2.2fr 1fr 1.3fr 1.1fr 0.9fr 1fr;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);border-bottom:1px solid var(--border-subtle);">
+              <div style="padding:12px 16px;">Project</div><div style="padding:12px 8px;">Status</div><div style="padding:12px 8px;">Progress</div><div style="padding:12px 8px;">Owner</div><div style="padding:12px 8px;">Priority</div><div style="padding:12px 8px;">Updated</div>
+            </div>
+            <sc-for list="{{ projRows }}" as="p" hint-placeholder-count="5">
+              <div onClick="{{ p.open }}" style="display:grid;grid-template-columns:2.2fr 1fr 1.3fr 1.1fr 0.9fr 1fr;align-items:center;border-bottom:1px solid var(--border-subtle);cursor:pointer;" style-hover="background:var(--bg-hover);">
+                <div style="padding:13px 16px;display:flex;align-items:center;gap:12px;min-width:0;"><span style="font-family:var(--font-mono);font-size:13px;font-weight:600;width:26px;flex:none;color:{{ p.statusFg }};">{{ p.health }}</span><div style="min-width:0;"><div style="font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ p.name }}</div><div style="font-size:11.5px;color:var(--text-tertiary);">{{ p.client }}</div></div></div>
+                <div style="padding:13px 8px;"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;font-size:11.5px;font-weight:600;background:{{ p.statusBg }};color:{{ p.statusFg }};"><span style="width:6px;height:6px;border-radius:99px;background:{{ p.statusFg }};"></span>{{ p.statusLabel }}</span></div>
+                <div style="padding:13px 8px;padding-right:18px;"><div style="height:6px;background:var(--bg-sunken);border-radius:99px;overflow:hidden;"><div style="height:100%;width:{{ p.progress }}%;background:{{ p.progressTone }};border-radius:99px;"></div></div><div style="font-size:11px;color:var(--text-tertiary);font-family:var(--font-mono);margin-top:3px;">{{ p.progress }}%</div></div>
+                <div style="padding:13px 8px;font-size:12.5px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ p.owner }}</div>
+                <div style="padding:13px 8px;"><span style="display:inline-flex;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ p.prioBg }};color:{{ p.prioFg }};">{{ p.prioLabel }}</span></div>
+                <div style="padding:13px 8px;font-size:12px;color:var(--text-tertiary);font-family:var(--font-mono);">{{ p.updated }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== PROJECT DETAIL ===== -->
+        <sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1100px;margin:0 auto;animation:ihFade .4s ease forwards;">
+          <button onClick="{{ backToProjects }}" style="display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--text-tertiary);font-size:13px;font-weight:500;font-family:var(--font-sans);cursor:pointer;margin-bottom:14px;padding:0;" style-hover="color:var(--text-primary);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>All projects</button>
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:18px;">
+            <div style="min-width:0;">
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;"><h1 style="margin:0;font-size:25px;font-weight:700;letter-spacing:-0.02em;">{{ sel.name }}</h1><span style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;background:{{ sel.statusBg }};color:{{ sel.statusFg }};"><span style="width:6px;height:6px;border-radius:99px;background:{{ sel.statusFg }};"></span>{{ sel.statusLabel }}</span></div>
+              <p style="margin:7px 0 0;font-size:14px;color:var(--text-secondary);">{{ sel.client }} · delivery {{ sel.delivery }} · owner {{ sel.owner }}</p>
+            </div>
+            <button onClick="{{ goAI }}" style="flex:none;height:36px;padding:0 14px;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-primary);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;gap:7px;" style-hover="background:var(--bg-hover);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0Z"/></svg>Ask AI about this</button>
+          </div>
+
+          <div style="border-bottom:1px solid var(--border-subtle);margin-bottom:22px;">
+            <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Tabs" tabs="{{ detailTabs }}" value="{{ detailTab }}" on-change="{{ setDetailTab }}" variant="line" hint-size="100%,42px"></x-import>
+          </div>
+
+          <!-- OVERVIEW -->
+          <sc-if value="{{ dtOverview }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:start;">
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:20px;">
+              <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;">Description</div>
+              <p style="margin:0 0 18px;font-size:14px;line-height:1.6;color:var(--text-primary);">{{ sel.description }}</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
+                <div style="background:var(--bg-surface-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:12px 14px;"><div style="font-size:12px;color:var(--text-tertiary);">Deadline</div><div style="font-size:15px;font-weight:600;font-family:var(--font-mono);margin-top:4px;">{{ sel.delivery }}</div></div>
+                <div style="background:var(--bg-surface-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:12px 14px;"><div style="font-size:12px;color:var(--text-tertiary);">Delivery confidence</div><div style="font-size:15px;font-weight:600;font-family:var(--font-mono);margin-top:4px;color:{{ sel.confColor }};">{{ sel.confidence }}%</div></div>
+              </div>
+              <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:6px;">Progress</div>
+              <div style="height:8px;background:var(--bg-sunken);border-radius:99px;overflow:hidden;"><div style="height:100%;width:{{ sel.progress }}%;background:{{ sel.progressTone }};border-radius:99px;"></div></div>
+              <div style="font-size:12px;color:var(--text-tertiary);font-family:var(--font-mono);margin-top:5px;">{{ sel.progress }}% complete</div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin:20px 0 10px;">Connected integrations</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <sc-for list="{{ sel.integrations }}" as="i" hint-placeholder-count="3"><span style="display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--border-subtle);border-radius:var(--radius-md);font-size:12.5px;font-weight:500;background:var(--bg-surface-2);"><span style="width:6px;height:6px;border-radius:99px;background:var(--cyan-500);"></span>{{ i }}</span></sc-for>
+              </div>
+            </div>
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:20px;">
+              <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:14px;">Health analysis</div>
+              <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+                <div style="position:relative;width:72px;height:72px;flex:none;"><svg width="72" height="72" viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="var(--bg-sunken)" stroke-width="7"/><circle cx="36" cy="36" r="30" fill="none" stroke="{{ sel.healthColor }}" stroke-width="7" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="{{ sel.healthDash }}" transform="rotate(-90 36 36)"/></svg><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:20px;font-weight:700;">{{ sel.health }}</span></div>
+                <div><div style="font-size:15px;font-weight:600;">{{ sel.statusLabel }}</div><div style="font-size:12.5px;color:var(--text-secondary);margin-top:3px;">Updated {{ sel.updated }}</div></div>
+              </div>
+              <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:10px;">Contributing signals</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <sc-for list="{{ selFactors }}" as="f" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="width:8px;height:8px;border-radius:99px;background:{{ f.color }};flex:none;"></span>{{ f.label }}</div></sc-for>
+              </div>
+            </div>
+          </div>
+          </sc-if>
+
+          <!-- AI SUMMARY -->
+          <sc-if value="{{ dtAI }}" hint-placeholder-val="{{ false }}">
+          <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px;max-width:780px;">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;"><span style="width:26px;height:26px;border-radius:7px;background:var(--accent-subtle);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0Z"/></svg></span><span style="font-size:15px;font-weight:600;">AI summary</span></div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:7px;">Progress</div>
+            <p style="margin:0 0 16px;font-size:14px;line-height:1.6;">{{ aiProgressLine }}</p>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:7px;">Updates</div>
+            <p style="margin:0 0 16px;font-size:14px;line-height:1.6;">{{ aiUpdatesLine }}</p>
+            <sc-if value="{{ hasConcerns }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--warning);margin-bottom:7px;">Concerns</div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px;"><sc-for list="{{ aiConcerns }}" as="c" hint-placeholder-count="2"><div style="display:flex;gap:9px;font-size:14px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--warning);flex:none;"></span><span>{{ c }}</span></div></sc-for></div>
+            </sc-if>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;">Recommendations</div>
+            <div style="display:flex;flex-direction:column;gap:7px;"><sc-for list="{{ aiRecos }}" as="r" hint-placeholder-count="2"><div style="display:flex;gap:9px;font-size:14px;line-height:1.45;"><span style="margin-top:6px;width:6px;height:6px;border-radius:99px;background:var(--accent);flex:none;"></span><span>{{ r }}</span></div></sc-for></div>
+          </div>
+          </sc-if>
+
+          <!-- CONFLICTS -->
+          <sc-if value="{{ dtConflicts }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ hasSelConflicts }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:14px;max-width:780px;">
+            <sc-for list="{{ selConflicts }}" as="c" hint-placeholder-count="1">
+              <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-left:3px solid {{ c.sevColor }};border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:18px;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"><span style="padding:3px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ c.sevBg }};color:{{ c.sevFg }};">{{ c.sevLabel }}</span><span style="font-size:13px;font-weight:600;color:var(--text-secondary);">{{ c.type }}</span></div>
+                <p style="margin:11px 0 0;font-size:14px;line-height:1.55;">{{ c.summary }}</p>
+                <div style="margin-top:12px;background:var(--accent-subtle);border-radius:var(--radius-md);padding:11px 13px;"><div style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent);margin-bottom:3px;">Suggested resolution</div><div style="font-size:13.5px;line-height:1.45;">{{ c.resolution }}</div></div>
+                <div style="font-size:12.5px;color:var(--text-tertiary);margin-top:11px;">{{ c.stakeholders }}</div>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+          <sc-if value="{{ hasSelConflicts }}" hint-placeholder-val="{{ false }}"></sc-if>
+          </sc-if>
+
+          <!-- ACTION ITEMS -->
+          <sc-if value="{{ dtActions }}" hint-placeholder-val="{{ false }}">
+          <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;max-width:840px;">
+            <sc-for list="{{ selActions }}" as="a" hint-placeholder-count="2">
+              <div style="display:flex;align-items:flex-start;gap:14px;padding:15px 20px;border-bottom:1px solid var(--border-subtle);">
+                <span style="margin-top:2px;flex:none;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:600;background:{{ a.prioBg }};color:{{ a.prioFg }};">{{ a.prioLabel }}</span>
+                <div style="flex:1;min-width:0;"><div style="font-size:14px;font-weight:600;line-height:1.35;">{{ a.action }}</div><div style="font-size:12.5px;color:var(--text-tertiary);margin-top:4px;">Owner {{ a.owner }} · Due {{ a.due }}</div></div>
+                <sc-if value="{{ a.isOpen }}" hint-placeholder-val="{{ true }}"><button onClick="{{ a.complete }}" style="flex:none;display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 11px;border:0;border-radius:var(--radius-md);background:var(--accent);color:#fff;font-size:12.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--accent-hover);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete</button></sc-if>
+                <sc-if value="{{ a.isOpen }}" hint-placeholder-val="{{ false }}"></sc-if>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+
+          <!-- TIMELINE -->
+          <sc-if value="{{ dtTimeline }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:680px;padding-left:6px;">
+            <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
+              <div style="display:flex;gap:14px;">
+                <div style="display:flex;flex-direction:column;align-items:center;"><span style="width:11px;height:11px;border-radius:99px;background:{{ t.tone }};margin-top:4px;flex:none;border:2px solid var(--bg-canvas);box-shadow:0 0 0 1px {{ t.tone }};"></span><span style="flex:1;width:2px;background:var(--border-subtle);margin:4px 0;"></span></div>
+                <div style="padding-bottom:22px;"><div style="font-size:11.5px;color:var(--text-tertiary);font-family:var(--font-mono);">{{ t.when }}</div><div style="font-size:14px;font-weight:600;margin-top:3px;">{{ t.title }}</div><div style="font-size:13px;color:var(--text-secondary);margin-top:3px;line-height:1.45;">{{ t.desc }}</div></div>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+        </div>
+        </sc-if>
+
+        <!-- ===== AI WORKSPACE ===== -->
+        <sc-if value="{{ isAI }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:230px 1fr 290px;gap:0;height:calc(100vh - 56px - 76px);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface);box-shadow:var(--shadow-sm);animation:ihFade .4s ease forwards;">
+          <!-- history -->
+          <div style="border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;background:var(--bg-surface-2);">
+            <div style="padding:16px;"><button style="width:100%;height:36px;border:0;border-radius:var(--radius-md);background:var(--accent);color:#fff;font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;" style-hover="background:var(--accent-hover);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg>New analysis</button></div>
+            <div style="padding:0 12px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;">Recent</div>
+            <div style="flex:1;overflow-y:auto;padding:0 8px;">
+              <sc-for list="{{ aiHistory }}" as="h" hint-placeholder-count="4"><button style="width:100%;text-align:left;padding:9px 10px;border:0;border-radius:var(--radius-md);background:transparent;cursor:pointer;font-family:var(--font-sans);margin-bottom:2px;" style-hover="background:var(--bg-hover);"><div style="font-size:13px;font-weight:500;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ h.title }}</div><div style="font-size:11px;color:var(--text-tertiary);margin-top:2px;">{{ h.when }}</div></button></sc-for>
+            </div>
+          </div>
+          <!-- chat -->
+          <div style="display:flex;flex-direction:column;min-width:0;">
+            <div style="flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:18px;">
+              <sc-for list="{{ chat }}" as="m" hint-placeholder-count="1">
+                <div style="display:flex;gap:12px;align-items:flex-start;flex-direction:{{ m.dir }};align-self:{{ m.align }};max-width:82%;">
+                  <span style="width:28px;height:28px;border-radius:8px;flex:none;display:inline-flex;align-items:center;justify-content:center;background:{{ m.avBg }};color:{{ m.avFg }};font-size:11px;font-weight:700;">{{ m.avText }}</span>
+                  <div style="background:{{ m.bubbleBg }};color:{{ m.bubbleFg }};border:1px solid {{ m.bubbleBorder }};border-radius:var(--radius-lg);padding:12px 15px;font-size:13.5px;line-height:1.55;">{{ m.text }}</div>
+                </div>
+              </sc-for>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;">
+                <sc-for list="{{ aiPrompts }}" as="p" hint-placeholder-count="3"><button onClick="{{ p.send }}" style="padding:7px 13px;border:1px solid var(--border-default);border-radius:999px;background:var(--bg-surface);color:var(--text-secondary);font-size:12.5px;font-weight:500;font-family:var(--font-sans);cursor:pointer;" style-hover="background:var(--bg-hover);border-color:var(--border-strong);">{{ p.label }}</button></sc-for>
+              </div>
+            </div>
+            <div style="border-top:1px solid var(--border-subtle);padding:14px 18px;">
+              <div style="display:flex;align-items:center;gap:10px;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:6px 6px 6px 14px;background:var(--bg-surface);">
+                <input value="{{ chatInput }}" onInput="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="Ask about project health, risks, conflicts…" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:14px;font-family:var(--font-sans);color:var(--text-primary);">
+                <button onClick="{{ sendChat }}" aria-label="Send" style="width:34px;height:34px;flex:none;border:0;border-radius:var(--radius-md);background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:var(--accent-hover);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+              </div>
+              <div style="font-size:11px;color:var(--text-tertiary);margin-top:7px;text-align:center;">AI uses live signals from your connected tools. Verify before acting on high-impact decisions.</div>
+            </div>
+          </div>
+          <!-- context -->
+          <div style="border-left:1px solid var(--border-subtle);background:var(--bg-surface-2);overflow-y:auto;padding:18px;">
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:6px;">Context</div>
+            <div style="font-size:13.5px;font-weight:600;margin-bottom:16px;">{{ aiContextProject }}</div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:10px;">Signals</div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+              <sc-for list="{{ aiSignals }}" as="s" hint-placeholder-count="4"><div style="display:flex;align-items:center;justify-content:space-between;font-size:13px;"><span style="color:var(--text-secondary);">{{ s.label }}</span><span style="font-family:var(--font-mono);font-weight:600;color:{{ s.tone }};">{{ s.val }}</span></div></sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <button onClick="{{ goAI }}" style="display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--bg-surface);cursor:pointer;font-family:var(--font-sans);" style-hover="border-color:var(--border-strong);"><span style="font-size:12.5px;font-weight:600;color:var(--danger);">Active conflicts</span><span style="font-family:var(--font-mono);font-size:13px;font-weight:700;">{{ orgConflicts }}</span></button>
+              <button onClick="{{ goDashboard }}" style="display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--bg-surface);cursor:pointer;font-family:var(--font-sans);" style-hover="border-color:var(--border-strong);"><span style="font-size:12.5px;font-weight:600;color:var(--accent);">Open action items</span><span style="font-family:var(--font-mono);font-size:13px;font-weight:700;">{{ pendingCount }}</span></button>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== SETTINGS ===== -->
+        <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:960px;margin:0 auto;animation:ihFade .4s ease forwards;">
+          <h1 style="margin:0 0 18px;font-size:26px;font-weight:700;letter-spacing:-0.02em;">Settings</h1>
+          <div style="display:flex;gap:6px;background:var(--bg-surface-2);border:1px solid var(--border-subtle);padding:4px;border-radius:var(--radius-md);width:fit-content;margin-bottom:22px;">
+            <button onClick="{{ setSettingsProfile }}" style="padding:7px 16px;border:0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ stProfileBg }};color:{{ stProfileFg }};">Profile</button>
+            <button onClick="{{ setSettingsMembers }}" style="padding:7px 16px;border:0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ stMembersBg }};color:{{ stMembersFg }};">Members</button>
+            <button onClick="{{ setSettingsRoles }}" style="padding:7px 16px;border:0;border-radius:var(--radius-sm);font-size:13px;font-weight:600;font-family:var(--font-sans);cursor:pointer;background:{{ stRolesBg }};color:{{ stRolesFg }};">Roles</button>
+          </div>
+
+          <sc-if value="{{ stProfile }}" hint-placeholder-val="{{ true }}">
+          <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:24px;max-width:560px;">
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+              <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Avatar" name="{{ userName }}" size="xl" hint-size="56px,56px"></x-import>
+              <div><div style="font-size:17px;font-weight:700;">{{ userName }}</div><div style="font-size:13px;color:var(--text-secondary);">{{ roleLabel }} · northwind workspace</div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
+              <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Input" label="Full name" default-value="Jayesh Patel" hint-size="100%,66px"></x-import>
+              <x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Input" label="Email" default-value="jayesh@northwind.com" hint-size="100%,66px"></x-import>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid var(--border-subtle);"><div><div style="font-size:13.5px;font-weight:600;">Daily AI briefing</div><div style="font-size:12.5px;color:var(--text-tertiary);">Delivered to your inbox at 7:30 AM</div></div><x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Switch" default-checked="{{ true }}" hint-size="44px,24px"></x-import></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid var(--border-subtle);"><div><div style="font-size:13.5px;font-weight:600;">Conflict alerts</div><div style="font-size:12.5px;color:var(--text-tertiary);">Notify me when AI detects a high-severity conflict</div></div><x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Switch" default-checked="{{ true }}" hint-size="44px,24px"></x-import></div>
+            <div style="margin-top:20px;"><x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Button" variant="primary" hint-size="130px,36px">Save changes</x-import></div>
+          </div>
+          </sc-if>
+
+          <sc-if value="{{ stMembers }}" hint-placeholder-val="{{ false }}">
+          <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border-subtle);"><div style="font-size:15px;font-weight:600;">Members</div><x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Button" variant="primary" size="sm" on-click="{{ addMember }}" hint-size="120px,32px">Add member</x-import></div>
+            <div style="display:grid;grid-template-columns:2fr 1.3fr 1fr 1fr;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-tertiary);border-bottom:1px solid var(--border-subtle);"><div style="padding:11px 20px;">Name</div><div style="padding:11px 8px;">Role</div><div style="padding:11px 8px;">Projects</div><div style="padding:11px 8px;">Availability</div></div>
+            <sc-for list="{{ members }}" as="m" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:2fr 1.3fr 1fr 1fr;align-items:center;border-bottom:1px solid var(--border-subtle);">
+                <div style="padding:12px 20px;display:flex;align-items:center;gap:11px;"><x-import component-from-global-scope="IntegrationsHubDesignSystem_c1b980.Avatar" name="{{ m.name }}" size="sm" hint-size="32px,32px"></x-import><span style="font-size:13.5px;font-weight:600;">{{ m.name }}</span></div>
+                <div style="padding:12px 8px;font-size:13px;color:var(--text-secondary);">{{ m.role }}</div>
+                <div style="padding:12px 8px;font-size:13px;font-family:var(--font-mono);color:var(--text-secondary);">{{ m.projects }}</div>
+                <div style="padding:12px 8px;"><span style="display:inline-flex;padding:2px 9px;border-radius:999px;font-size:11.5px;font-weight:600;background:{{ m.availBg }};color:{{ m.availFg }};">{{ m.avail }}</span></div>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+
+          <sc-if value="{{ stRoles }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:20px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="width:34px;height:34px;border-radius:9px;background:var(--accent-subtle);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><div style="font-size:15px;font-weight:700;">Project Manager</div></div>
+              <p style="margin:0 0 14px;font-size:13px;color:var(--text-secondary);line-height:1.5;">Execution & delivery. Scoped to assigned projects.</p>
+              <div style="display:flex;flex-direction:column;gap:8px;"><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="color:var(--success);">✓</span>Monitor assigned projects</div><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="color:var(--success);">✓</span>Resolve blockers & conflicts</div><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="color:var(--success);">✓</span>Complete action items</div><div style="display:flex;align-items:center;gap:9px;font-size:13px;color:var(--text-tertiary);"><span>—</span>Org-wide resource management</div></div>
+            </div>
+            <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:20px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="width:34px;height:34px;border-radius:9px;background:var(--accent-2-subtle);color:var(--accent-2);display:inline-flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></span><div style="font-size:15px;font-weight:700;">Organization Admin</div></div>
+              <p style="margin:0 0 14px;font-size:13px;color:var(--text-secondary);line-height:1.5;">Portfolio oversight. Full organization access.</p>
+              <div style="display:flex;flex-direction:column;gap:8px;"><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="color:var(--success);">✓</span>Monitor all projects</div><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="color:var(--success);">✓</span>Manage resources & risk</div><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="color:var(--success);">✓</span>Review executive briefings</div><div style="display:flex;align-items:center;gap:9px;font-size:13px;"><span style="color:var(--success);">✓</span>Detect portfolio risks</div></div>
+            </div>
+          </div>
+          </sc-if>
+        </div>
+        </sc-if>
+
+      </main>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== ONBOARDING ===================== -->
+  <sc-if value="{{ isOnboarding }}" hint-placeholder-val="{{ false }}">
+  <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;background:var(--bg-canvas);">
+    <div style="width:100%;max-width:600px;">
+      <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:24px;">
+        <span style="width:32px;height:32px;border-radius:8px;background:var(--primary-600);display:inline-flex;align-items:center;justify-content:center;"><img src="assets/icon-white.png" width="20" alt=""></span>
+        <span style="font-weight:700;font-size:16px;letter-spacing:-0.01em;">Integrations Hub</span>
+      </div>
+      <div style="background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);overflow:hidden;">
+        <!-- progress -->
+        <div style="height:4px;background:var(--bg-sunken);"><div style="height:100%;width:{{ onbProgress }}%;background:var(--accent);transition:width .3s var(--ease-out,ease);"></div></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 30px 0;font-size:11px;font-weight:600;letter-spacing:0.03em;">
+          <span style="color:{{ s0fg }};">Welcome</span><span style="color:{{ s1fg }};">Connect</span><span style="color:{{ s2fg }};">Sync</span><span style="color:{{ s3fg }};">AI briefing</span>
+        </div>
+
+        <div style="padding:30px;min-height:300px;">
+          <!-- step 0 welcome -->
+          <sc-if value="{{ onbWelcome }}" hint-placeholder-val="{{ true }}">
+          <div style="text-align:center;padding:12px 0;">
+            <svg viewBox="0 0 200 120" style="width:200px;height:120px;margin:0 auto 8px;display:block;"><g stroke="var(--accent)" stroke-width="1.5" opacity=".35"><line x1="40" y1="30" x2="100" y2="60"/><line x1="100" y1="60" x2="160" y2="30"/><line x1="100" y1="60" x2="70" y2="95"/><line x1="100" y1="60" x2="135" y2="95"/></g><g fill="var(--cyan-500)"><circle cx="40" cy="30" r="5"/><circle cx="160" cy="30" r="5"/><circle cx="70" cy="95" r="5"/><circle cx="135" cy="95" r="5"/></g><circle cx="100" cy="60" r="8" fill="var(--accent)"/></svg>
+            <h2 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-0.02em;">Welcome to Integrations Hub</h2>
+            <p style="margin:10px auto 0;font-size:14.5px;color:var(--text-secondary);line-height:1.55;max-width:400px;">We'll connect your work systems, sync your project data, and generate your first AI briefing — in under a minute.</p>
+          </div>
+          </sc-if>
+          <!-- step 1 connect -->
+          <sc-if value="{{ onbConnect }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <h2 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.02em;">Connect your tools</h2>
+            <p style="margin:8px 0 18px;font-size:14px;color:var(--text-secondary);">{{ onbConnectedCount }} connected · the more you connect, the sharper the intelligence.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+              <sc-for list="{{ onbConnectors }}" as="c" hint-placeholder-count="9">
+                <button onClick="{{ c.toggle }}" style="display:flex;align-items:center;gap:9px;padding:11px 12px;border:1.5px solid {{ c.border }};border-radius:var(--radius-md);background:{{ c.bg }};cursor:pointer;font-family:var(--font-sans);text-align:left;" style-hover="border-color:var(--border-strong);">
+                  <span style="width:24px;height:24px;border-radius:6px;flex:none;background:{{ c.tileBg }};color:{{ c.tileFg }};display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">{{ c.initial }}</span>
+                  <span style="flex:1;min-width:0;font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ c.name }}</span>
+                  <sc-if value="{{ c.connected }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M20 6 9 17l-5-5"/></svg></sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          </sc-if>
+          <!-- step 2 sync -->
+          <sc-if value="{{ onbSync }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:8px 0;">
+            <div style="width:54px;height:54px;border-radius:99px;border:3px solid var(--accent-subtle);border-top-color:var(--accent);margin:8px auto 18px;animation:ihSpin 1s linear infinite;"></div>
+            <h2 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.02em;">Syncing your data</h2>
+            <p style="margin:8px 0 20px;font-size:14px;color:var(--text-secondary);">Pulling signals from your connected tools.</p>
+            <div style="max-width:380px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:11px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;"><span style="width:18px;height:18px;border-radius:99px;background:var(--success);display:inline-flex;align-items:center;justify-content:center;flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Imported 312 issues from Jira</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;"><span style="width:18px;height:18px;border-radius:99px;background:var(--success);display:inline-flex;align-items:center;justify-content:center;flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Analyzed 1,204 Slack messages</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text-secondary);"><span style="width:18px;height:18px;border-radius:99px;border:2px solid var(--border-default);flex:none;"></span>Mapping GitHub activity…</div>
+            </div>
+          </div>
+          </sc-if>
+          <!-- step 3 briefing -->
+          <sc-if value="{{ onbBrief }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><span style="width:26px;height:26px;border-radius:7px;background:var(--accent-subtle);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0Z"/></svg></span><h2 style="margin:0;font-size:20px;font-weight:700;letter-spacing:-0.02em;">Your first briefing is ready</h2></div>
+            <p style="margin:0 0 16px;font-size:14px;color:var(--text-secondary);">Here's what Integrations Hub found across your projects.</p>
+            <div style="background:var(--bg-surface-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px;font-size:13.5px;line-height:1.6;">
+              <p style="margin:0;">You have <strong>5 active projects</strong>. 3 are on track and <strong style="color:var(--danger);">2 need attention</strong> — Beacon Analytics and Orion Mobile App. The biggest risk today is a blocked dependency between Beacon and Helix, and engineering is over capacity. I've drafted <strong>6 action items</strong> ranked by impact.</p>
+            </div>
+          </div>
+          </sc-if>
+        </div>
+
+        <!-- footer -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 30px;border-top:1px solid var(--border-subtle);background:var(--bg-surface-2);">
+          <button onClick="{{ skipOnb }}" style="background:none;border:0;color:var(--text-tertiary);font-size:13px;font-weight:500;font-family:var(--font-sans);cursor:pointer;" style-hover="color:var(--text-primary);">Skip setup</button>
+          <div style="display:flex;gap:10px;">
+            <sc-if value="{{ onbBrief }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ finishOnb }}" style="height:38px;padding:0 20px;border:0;border-radius:var(--radius-md);background:var(--accent);color:#fff;font-size:13.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;gap:7px;" style-hover="background:var(--accent-hover);">Enter dashboard<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </sc-if>
+            <sc-if value="{{ onbBrief }}" hint-placeholder-val="{{ true }}"></sc-if>
+            <sc-if value="{{ onbNotBrief }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ nextOnb }}" style="height:38px;padding:0 20px;border:0;border-radius:var(--radius-md);background:var(--accent);color:#fff;font-size:13.5px;font-weight:600;font-family:var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;gap:7px;" style-hover="background:var(--accent-hover);">Continue<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== ROLE MODAL ===================== -->
+  <sc-if value="{{ roleModalOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:90;background:rgba(11,13,20,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:24px;animation:ihFade .2s ease forwards;">
+    <div style="width:100%;max-width:720px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);box-shadow:var(--shadow-xl);overflow:hidden;">
+      <div style="padding:26px 30px 18px;text-align:center;border-bottom:1px solid var(--border-subtle);">
+        <h2 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-0.02em;">Choose your workspace view</h2>
+        <p style="margin:8px 0 0;color:var(--text-secondary);font-size:14px;">Integrations Hub tailors intelligence to your role. You can switch anytime.</p>
+      </div>
+      <div style="padding:24px 30px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <button onClick="{{ pickPM }}" style="text-align:left;border:1.5px solid {{ pmCardBorder }};border-radius:var(--radius-lg);background:{{ pmCardBg }};padding:20px;cursor:pointer;font-family:var(--font-sans);transition:border-color .14s,box-shadow .14s;" style-hover="border-color:var(--accent);box-shadow:var(--shadow-md);">
+          <span style="width:40px;height:40px;border-radius:10px;background:var(--accent-subtle);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <div style="font-size:16px;font-weight:700;margin-top:14px;">Project Manager</div>
+          <p style="margin:6px 0 0;font-size:13px;color:var(--text-secondary);line-height:1.5;">Execution & delivery. Track health, resolve blockers, clear action items.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:7px;">
+            <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-secondary);"><span style="width:5px;height:5px;border-radius:99px;background:var(--accent);"></span>Monitor assigned projects</span>
+            <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-secondary);"><span style="width:5px;height:5px;border-radius:99px;background:var(--accent);"></span>Resolve blockers & conflicts</span>
+            <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-secondary);"><span style="width:5px;height:5px;border-radius:99px;background:var(--accent);"></span>Complete AI action items</span>
+          </div>
+        </button>
+        <button onClick="{{ pickAdmin }}" style="text-align:left;border:1.5px solid {{ adCardBorder }};border-radius:var(--radius-lg);background:{{ adCardBg }};padding:20px;cursor:pointer;font-family:var(--font-sans);transition:border-color .14s,box-shadow .14s;" style-hover="border-color:var(--accent);box-shadow:var(--shadow-md);">
+          <span style="width:40px;height:40px;border-radius:10px;background:var(--accent-2-subtle);color:var(--accent-2);display:inline-flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></span>
+          <div style="font-size:16px;font-weight:700;margin-top:14px;">Organization Admin</div>
+          <p style="margin:6px 0 0;font-size:13px;color:var(--text-secondary);line-height:1.5;">Portfolio oversight. Monitor org health, resources, and executive briefings.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:7px;">
+            <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-secondary);"><span style="width:5px;height:5px;border-radius:99px;background:var(--accent-2);"></span>Monitor all projects</span>
+            <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-secondary);"><span style="width:5px;height:5px;border-radius:99px;background:var(--accent-2);"></span>Manage resources & risk</span>
+            <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-secondary);"><span style="width:5px;height:5px;border-radius:99px;background:var(--accent-2);"></span>Review executive briefings</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TOASTS ===================== -->
+  <div style="position:fixed;bottom:24px;right:24px;z-index:120;display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
+    <sc-for list="{{ toasts }}" as="t" hint-placeholder-count="0">
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg-inverse);color:var(--text-inverse);padding:11px 15px;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);font-size:13.5px;font-weight:500;animation:ihFade .22s ease forwards;">
+        <span style="width:18px;height:18px;border-radius:99px;background:var(--success);display:inline-flex;align-items:center;justify-content:center;flex:none;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>{{ t.msg }}
+      </div>
+    </sc-for>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1380,&quot;height&quot;:900},&quot;pmLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;focused&quot;,&quot;split&quot;,&quot;triage&quot;],&quot;default&quot;:&quot;split&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Dashboard&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    let theme = "light";
+    try { theme = localStorage.getItem("ih-theme") || "light"; } catch (e) {}
+    this.state = {
+      view: "login",          // login | onboarding | app
+      page: "dashboard",      // dashboard | projects | project | ai | settings
+      role: "pm",             // pm | admin
+      theme: theme,
+      roleModal: false,
+      pmLayout: null,
+      actionStatus: {},
+      toasts: [],
+      onbStep: 0,
+      selectedId: null,
+      projFilter: "all",
+      projSearch: "",
+      projSort: "updated",
+      detailTab: "overview",
+      chat: [],
+      chatInput: "",
+      settingsTab: "profile",
+      onbConnected: ["Jira","Slack","GitHub"],
+      onboarded: false,
+    };
+    this._tid = 0;
+
+    // ---------- DATA ----------
+    this.userName = "Jayesh Patel";
+
+    this.projects = [
+      { id:"atlas", name:"Atlas ERP Migration", client:"Northwind Trading", status:"ontrack", health:86, progress:72, priority:"high", updated:"12 min ago", pm:"Jayesh Patel", owner:"Jayesh Patel", delivery:"Aug 14, 2026", confidence:88, mine:true, dept:"Engineering",
+        factors:[{label:"On schedule",tone:"success"},{label:"Low defect rate",tone:"success"},{label:"1 dependency watch",tone:"warning"}],
+        description:"Migrate Northwind's on-prem ERP integrations to the cloud data platform with zero downtime cutover.",
+        integrations:["Jira","GitHub","Slack","SharePoint"] },
+      { id:"orion", name:"Orion Mobile App", client:"Vertex Retail", status:"offtrack", health:52, progress:48, priority:"high", updated:"3 min ago", pm:"Jayesh Patel", owner:"Priya Nair", delivery:"Jul 22, 2026", confidence:54, mine:true, dept:"Engineering",
+        factors:[{label:"Schedule slip 9d",tone:"danger"},{label:"Defect slippage",tone:"danger"},{label:"Comms drift",tone:"warning"}],
+        description:"Native iOS & Android rebuild of Vertex's customer loyalty app ahead of the holiday season.",
+        integrations:["Jira","GitHub","Slack","Teams"] },
+      { id:"helix", name:"Helix Data Platform", client:"Northwind Trading", status:"ontrack", health:78, progress:64, priority:"medium", updated:"1 hr ago", pm:"Jayesh Patel", owner:"Marco Reyes", delivery:"Sep 30, 2026", confidence:80, mine:true, dept:"Engineering",
+        factors:[{label:"On schedule",tone:"success"},{label:"Resource tight",tone:"warning"}],
+        description:"Unified analytics lakehouse consolidating six legacy reporting databases.",
+        integrations:["Jira","GitHub","Outlook"] },
+      { id:"beacon", name:"Beacon Analytics", client:"Lumen Health", status:"offtrack", health:44, progress:38, priority:"high", updated:"26 min ago", pm:"Jayesh Patel", owner:"Sara Kim", delivery:"Jul 18, 2026", confidence:41, mine:true, dept:"Engineering",
+        factors:[{label:"2 missed milestones",tone:"danger"},{label:"Dependency blocked",tone:"danger"},{label:"Scope creep",tone:"warning"}],
+        description:"Real-time clinical dashboards for Lumen's care coordination teams.",
+        integrations:["Jira","Slack","Teams","SharePoint"] },
+      { id:"quantum", name:"Quantum Payments", client:"Vertex Retail", status:"ontrack", health:91, progress:84, priority:"medium", updated:"2 hr ago", pm:"Jayesh Patel", owner:"Devon Clarke", delivery:"Oct 9, 2026", confidence:92, mine:true, dept:"Engineering",
+        factors:[{label:"Ahead of plan",tone:"success"},{label:"Healthy comms",tone:"success"}],
+        description:"PCI-compliant payment orchestration layer across Vertex's storefronts.",
+        integrations:["Jira","GitHub","Slack"] },
+      { id:"nimbus", name:"Nimbus CRM Rollout", client:"Cedar Logistics", status:"ontrack", health:74, progress:58, priority:"medium", updated:"4 hr ago", pm:"Amelia Stone", owner:"Amelia Stone", delivery:"Nov 2, 2026", confidence:76, mine:false, dept:"Operations",
+        factors:[{label:"On schedule",tone:"success"},{label:"Adoption lag",tone:"warning"}],
+        description:"Company-wide CRM migration and sales process automation for Cedar.",
+        integrations:["Asana","Slack","Outlook"] },
+      { id:"pulse", name:"Pulse Health Portal", client:"Lumen Health", status:"offtrack", health:58, progress:51, priority:"high", updated:"40 min ago", pm:"Raj Mehta", owner:"Raj Mehta", delivery:"Aug 1, 2026", confidence:60, mine:false, dept:"Design",
+        factors:[{label:"Requirement mismatch",tone:"danger"},{label:"Resource constraint",tone:"warning"}],
+        description:"Patient-facing portal redesign with accessibility compliance.",
+        integrations:["ClickUp","Teams","SharePoint"] },
+      { id:"vega", name:"Vega Commerce", client:"Vertex Retail", status:"ontrack", health:82, progress:69, priority:"low", updated:"6 hr ago", pm:"Amelia Stone", owner:"Liam Foster", delivery:"Dec 12, 2026", confidence:84, mine:false, dept:"Engineering",
+        factors:[{label:"On schedule",tone:"success"},{label:"Stable scope",tone:"success"}],
+        description:"Headless commerce replatform for Vertex's B2B channel.",
+        integrations:["Trello","GitHub","Slack"] },
+    ];
+
+    this.actionItems = [
+      { id:"a1", prio:"high",   action:"Schedule alignment meeting for Orion's slipping sprint", project:"Orion Mobile App", owner:"Jayesh Patel", due:"Today" },
+      { id:"a2", prio:"high",   action:"Escalate blocked auth dependency on Beacon Analytics", project:"Beacon Analytics", owner:"Sara Kim", due:"Today" },
+      { id:"a3", prio:"medium", action:"Reassign overloaded QA resource from Helix to Beacon", project:"Helix Data Platform", owner:"Marco Reyes", due:"Tomorrow" },
+      { id:"a4", prio:"medium", action:"Review delayed milestone & re-baseline Orion timeline", project:"Orion Mobile App", owner:"Priya Nair", due:"Jun 30" },
+      { id:"a5", prio:"low",    action:"Confirm scope freeze with Beacon stakeholders", project:"Beacon Analytics", owner:"Jayesh Patel", due:"Jul 2" },
+      { id:"a6", prio:"medium", action:"Close out resolved Slack thread on Atlas dependency", project:"Atlas ERP Migration", owner:"Jayesh Patel", due:"Jul 1" },
+    ];
+
+    this.conflictData = [
+      { id:"c1", sev:"high", type:"Dependency conflict", project:"Beacon Analytics", summary:"The auth service Beacon depends on is owned by the Helix team and is now 6 days behind. Two teams are blocked waiting on the same milestone.", resolution:"Hold a 20-min cross-team sync today; re-sequence Helix's auth task ahead of its reporting work.", stakeholders:"3 stakeholders · Sara Kim, Marco Reyes" },
+      { id:"c2", sev:"medium", type:"Scope creep", project:"Orion Mobile App", summary:"7 new requirements were added in Jira this week without timeline adjustment, while comms in Slack dropped 40%.", resolution:"Trigger a scope-freeze review with Vertex and re-baseline the sprint before Friday.", stakeholders:"4 stakeholders · Priya Nair" },
+      { id:"c3", sev:"medium", type:"Communication drift", project:"Pulse Health Portal", summary:"Requirement mismatch between the Figma spec and the Jira acceptance criteria is causing rework on the patient portal.", resolution:"Reconcile spec vs. acceptance criteria in a single source; assign Raj to own the canonical doc.", stakeholders:"2 stakeholders · Raj Mehta" },
+    ];
+
+    this.briefing = {
+      changed:["Orion's sprint velocity dropped 22% week-over-week.","Quantum Payments moved ahead of plan after the gateway integration shipped.","Atlas closed 14 GitHub PRs and cleared its dependency watch."],
+      risks:["Helix QA capacity is at 96% — any new defect intake will slip the timeline.","Beacon's delivery confidence fell below 45%."],
+      blockers:["Beacon is blocked on the shared auth dependency owned by Helix."],
+      next:["Run the Beacon ↔ Helix dependency sync today.","Re-baseline Orion's timeline after the scope-freeze review."],
+    };
+
+    // admin data
+    this.orgQueue = [
+      { id:"o1", impact:"Critical", title:"Reallocate 2 senior engineers from Vega to Beacon", detail:"Beacon's delivery confidence is 41% and falling; Vega has 18% slack capacity.", dept:"Engineering" },
+      { id:"o2", impact:"High", title:"Leadership intervention on Orion ↔ Vertex scope", detail:"Repeated scope creep without re-baselining is eroding the client relationship.", dept:"Engineering" },
+      { id:"o3", impact:"High", title:"Approve contractor backfill for QA", detail:"QA is the binding constraint across 3 off-track projects.", dept:"QA" },
+      { id:"o4", impact:"Medium", title:"Review Pulse Health milestone slip with Lumen", detail:"Requirement mismatch is causing avoidable rework.", dept:"Design" },
+    ];
+    this.resources = [
+      { dept:"Engineering", cap:100, alloc:104, people:24, state:"over" },
+      { dept:"QA", cap:100, alloc:96, people:9, state:"high" },
+      { dept:"Design", cap:100, alloc:71, people:11, state:"ok" },
+      { dept:"Project Management", cap:100, alloc:88, people:6, state:"high" },
+      { dept:"Operations", cap:100, alloc:54, people:8, state:"low" },
+    ];
+    this.members = [
+      { name:"Jayesh Patel", role:"Project Manager", projects:5, avail:"Available" },
+      { name:"Amelia Stone", role:"Project Manager", projects:2, avail:"Available" },
+      { name:"Raj Mehta", role:"Project Manager", projects:1, avail:"Busy" },
+      { name:"Priya Nair", role:"Engineer", projects:1, avail:"Available" },
+      { name:"Marco Reyes", role:"Engineer", projects:2, avail:"Busy" },
+      { name:"Sara Kim", role:"QA Lead", projects:3, avail:"Overloaded" },
+      { name:"Devon Clarke", role:"Engineer", projects:1, avail:"Available" },
+    ];
+  }
+
+  componentDidMount() {
+    this.setState({ chat: [
+      { who:"ai", text:"I'm your project intelligence copilot. I've reviewed signals across your 5 projects. Beacon and Orion need attention today — ask me anything, or pick a prompt below." },
+    ]});
+  }
+
+  // ---------- helpers ----------
+  toast(msg) {
+    const id = ++this._tid;
+    this.setState(s => ({ toasts: [...s.toasts, { id, msg }] }));
+    setTimeout(() => this.setState(s => ({ toasts: s.toasts.filter(t => t.id !== id) })), 2600);
+  }
+  layout() { return this.state.pmLayout || this.props.pmLayout || "split"; }
+  navBg(k) { return this.activeNav() === k ? "var(--accent-subtle)" : "transparent"; }
+  navFg(k) { return this.activeNav() === k ? "var(--accent)" : "var(--text-secondary)"; }
+  activeNav() { const p = this.state.page; return (p === "project") ? "projects" : p; }
+
+  prioMeta(p) {
+    if (p === "high") return { label:"High", bg:"var(--danger-subtle)", fg:"var(--danger)" };
+    if (p === "medium") return { label:"Medium", bg:"var(--warning-subtle)", fg:"var(--warning)" };
+    return { label:"Low", bg:"var(--bg-sunken)", fg:"var(--text-secondary)" };
+  }
+  sevMeta(s) {
+    if (s === "high") return { label:"High severity", bg:"var(--danger-subtle)", fg:"var(--danger)", color:"var(--danger)" };
+    if (s === "medium") return { label:"Medium", bg:"var(--warning-subtle)", fg:"var(--warning)", color:"var(--warning)" };
+    return { label:"Low", bg:"var(--info-subtle)", fg:"var(--info)", color:"var(--info)" };
+  }
+  factorColor(t) { return t === "success" ? "var(--success)" : t === "danger" ? "var(--danger)" : "var(--warning)"; }
+  healthColor(p) { return p.status === "ontrack" ? "var(--success)" : "var(--danger)"; }
+
+  // ---------- nav handlers ----------
+  go(page) { this.setState({ page }); }
+  openProject(id) { this.setState({ page:"project", selectedId:id, detailTab:"overview" }); }
+
+  sendChat(preset) {
+    const text = (preset != null ? preset : this.state.chatInput).trim();
+    if (!text) return;
+    const replies = {
+      beacon: "Beacon Analytics is off track (health 44). The root cause is a blocked auth dependency owned by the Helix team — now 6 days late — compounded by 2 missed milestones and scope creep. My recommendation: run the Beacon ↔ Helix dependency sync today and freeze scope before re-baselining.",
+      risk: "Top risks today: (1) Helix QA is at 96% capacity — any new defect intake slips the timeline. (2) Beacon's delivery confidence fell below 45%. (3) Orion added 7 requirements while comms dropped 40%. Address QA capacity first; it's the binding constraint across 3 projects.",
+      orion: "Orion's scope grew by 7 requirements this week with no timeline change, while Slack activity dropped 40% — a classic scope-creep + disengagement pattern. Trigger a scope-freeze review with Vertex and re-baseline the sprint before Friday.",
+      resource: "Engineering is the most overloaded department at 104% allocation, followed by QA at 96%. Moving 2 senior engineers from Vega (18% slack) to Beacon would lift Beacon's confidence and relieve the binding constraint.",
+    };
+    const low = text.toLowerCase();
+    let reply = "Based on the signals across your projects, here's what stands out: Beacon and Orion are your two off-track projects and both trace back to dependency and scope issues. Want me to draft the action items to resolve them?";
+    if (low.includes("beacon")) reply = replies.beacon;
+    else if (low.includes("risk")) reply = replies.risk;
+    else if (low.includes("orion") || low.includes("scope")) reply = replies.orion;
+    else if (low.includes("resource") || low.includes("overload")) reply = replies.resource;
+    this.setState(s => ({ chat: [...s.chat, { who:"user", text }, { who:"ai", text:reply }], chatInput:"" }));
+  }
+
+  renderVals() {
+    const st = this.state;
+    const layout = this.layout();
+    const C = 138.23; // 2*pi*22
+
+    // layout placement
+    const L = {
+      focused: { cols:"minmax(0,1fr)", kpis:["1","1"], actions:["1","2"], conflicts:["1","3"], health:["1","4"], briefing:["1","5"], healthCols:"repeat(auto-fill,minmax(240px,1fr))" },
+      split:   { cols:"minmax(0,1.5fr) minmax(0,1fr)", kpis:["1 / 3","1"], actions:["1 / 2","2"], briefing:["2 / 3","2 / 4"], conflicts:["1 / 2","3"], health:["1 / 3","4"], healthCols:"repeat(auto-fill,minmax(230px,1fr))" },
+      triage:  { cols:"repeat(3, minmax(0,1fr))", kpis:["1 / 4","1"], actions:["1 / 3","2"], briefing:["3 / 4","2 / 4"], conflicts:["1 / 2","3"], health:["2 / 3","3"], healthCols:"repeat(auto-fill,minmax(220px,1fr))" },
+    }[layout];
+
+    const isPM = st.role === "pm";
+    const visibleProjects = isPM ? this.projects.filter(p => p.mine) : this.projects;
+
+    // actions with closures + meta
+    const actions = this.actionItems.map(a => {
+      const stt = st.actionStatus[a.id] || "open";
+      const pm = this.prioMeta(a.prio);
+      return {
+        ...a, prioLabel:pm.label, prioBg:pm.bg, prioFg:pm.fg,
+        isOpen: stt === "open", isDone: stt !== "open",
+        opacity: stt === "completed" ? 0.55 : 1,
+        doneLabel: stt === "completed" ? "Completed" : stt === "snoozed" ? "Snoozed" : "Escalated",
+        doneColor: stt === "completed" ? "var(--success)" : stt === "snoozed" ? "var(--text-tertiary)" : "var(--danger)",
+        complete: () => { this.setState(s => ({ actionStatus:{...s.actionStatus, [a.id]:"completed"} })); this.toast("Action completed."); },
+        snooze: () => { this.setState(s => ({ actionStatus:{...s.actionStatus, [a.id]:"snoozed"} })); this.toast("Snoozed for 1 day."); },
+        escalate: () => { this.setState(s => ({ actionStatus:{...s.actionStatus, [a.id]:"escalated"} })); this.toast("Escalated to delivery lead."); },
+      };
+    });
+    const pendingCount = actions.filter(a => a.isOpen).length;
+
+    const conflicts = this.conflictData.map(c => {
+      const sm = this.sevMeta(c.sev);
+      return { ...c, sevLabel:sm.label, sevBg:sm.bg, sevFg:sm.fg, sevColor:sm.color,
+        resolve: () => this.toast("Resolution workflow started."),
+        investigate: () => { this.setState({ page:"ai" }); this.toast("Opened conflict in AI Workspace."); } };
+    });
+
+    const healthProjects = visibleProjects.slice(0, layout === "triage" ? 3 : 6).map(p => ({
+      ...p,
+      healthColor: this.healthColor(p),
+      healthDash: (C * (1 - p.health / 100)).toFixed(2),
+      statusLabel: p.status === "ontrack" ? "On track" : "Off track",
+      statusBg: p.status === "ontrack" ? "var(--success-subtle)" : "var(--danger-subtle)",
+      statusFg: p.status === "ontrack" ? "var(--success)" : "var(--danger)",
+      factors: p.factors.map(f => ({ label:f.label, color:this.factorColor(f.tone) })),
+      open: () => this.openProject(p.id),
+    }));
+
+    const onTrack = visibleProjects.filter(p => p.status === "ontrack").length;
+    const offTrack = visibleProjects.filter(p => p.status === "offtrack").length;
+
+    const hr = new Date().getHours();
+    const greeting = hr < 12 ? "Good morning" : hr < 18 ? "Good afternoon" : "Good evening";
+    const firstName = this.userName.split(" ")[0];
+
+    const segBg = (k) => layout === k ? "var(--bg-surface)" : "transparent";
+    const segFg = (k) => layout === k ? "var(--text-primary)" : "var(--text-tertiary)";
+
+    const decorate = (p) => ({ ...p,
+      statusLabel: p.status === "ontrack" ? "On track" : "Off track",
+      statusBg: p.status === "ontrack" ? "var(--success-subtle)" : "var(--danger-subtle)",
+      statusFg: p.status === "ontrack" ? "var(--success)" : "var(--danger)",
+      prioLabel: this.prioMeta(p.priority).label, prioBg: this.prioMeta(p.priority).bg, prioFg: this.prioMeta(p.priority).fg,
+      progressTone: p.status === "ontrack" ? "var(--success)" : "var(--danger)",
+      open: () => this.openProject(p.id),
+    });
+
+    // ===== PROJECTS MODULE =====
+    const pf = st.projFilter, pq = (st.projSearch || "").toLowerCase();
+    let projList = visibleProjects.filter(p => pf === "all" ? true : pf === "ontrack" ? p.status === "ontrack" : p.status === "offtrack");
+    if (pq) projList = projList.filter(p => (p.name + " " + p.client + " " + p.owner).toLowerCase().includes(pq));
+    projList = [...projList].sort((a, b) => st.projSort === "health" ? b.health - a.health : st.projSort === "progress" ? b.progress - a.progress : st.projSort === "name" ? a.name.localeCompare(b.name) : 0);
+    const projRows = projList.map(decorate);
+    const fFg = (k) => st.projFilter === k ? "var(--accent)" : "var(--text-secondary)";
+    const fBg = (k) => st.projFilter === k ? "var(--accent-subtle)" : "transparent";
+
+    // ===== PROJECT DETAIL =====
+    const sel = this.projects.find(p => p.id === st.selectedId) || visibleProjects[0] || this.projects[0];
+    const selConflicts = this.conflictData.filter(c => c.project === sel.name).map(c => { const sm = this.sevMeta(c.sev); return { ...c, sevLabel:sm.label, sevBg:sm.bg, sevFg:sm.fg, sevColor:sm.color }; });
+    const selActions = this.actionItems.filter(a => a.project === sel.name).map(a => { const s2 = st.actionStatus[a.id] || "open"; const pm = this.prioMeta(a.prio); return { ...a, prioLabel:pm.label, prioBg:pm.bg, prioFg:pm.fg, isOpen: s2 === "open", doneLabel: s2 === "completed" ? "Completed" : s2 === "snoozed" ? "Snoozed" : "Escalated", doneColor: s2 === "completed" ? "var(--success)" : "var(--text-tertiary)", complete: () => { this.setState(s => ({ actionStatus:{...s.actionStatus, [a.id]:"completed"} })); this.toast("Action completed."); } }; });
+    const selDec = decorate(sel);
+    selDec.healthDash = (C * (1 - sel.health / 100)).toFixed(2);
+    selDec.healthColor = this.healthColor(sel);
+    selDec.confColor = sel.confidence > 70 ? "var(--success)" : sel.confidence > 50 ? "var(--warning)" : "var(--danger)";
+    const selFactors = sel.factors.map(f => ({ label:f.label, color:this.factorColor(f.tone) }));
+    const detailTabs = [
+      { value:"overview", label:"Overview" },
+      { value:"ai", label:"AI summary" },
+      { value:"conflicts", label:"Conflicts", count:selConflicts.length },
+      { value:"actions", label:"Action items", count:selActions.length },
+      { value:"timeline", label:"Timeline" },
+    ];
+    const aiConcerns = sel.factors.filter(f => f.tone !== "success").map(f => f.label);
+    const aiProgressLine = `${sel.name} is ${sel.progress}% complete and currently ${sel.status === "ontrack" ? "on track" : "off track"} for ${sel.delivery}. Delivery confidence sits at ${sel.confidence}%.`;
+    const aiUpdatesLine = sel.status === "ontrack"
+      ? "Velocity is steady and the team cleared its dependency watch this week. Communication cadence across Slack and Jira is healthy and defect intake is low."
+      : "Velocity has dropped this sprint and signals point to schedule slip. Communication volume fell while new scope was added — a leading indicator of delivery risk.";
+    const aiRecos = sel.status === "ontrack"
+      ? ["Maintain current sprint cadence.", "Keep the dependency watch active for one more cycle.", "No intervention needed this week."]
+      : ["Hold a re-baselining session this week.", "Resolve the top conflict before accepting new scope.", "Rebalance the binding resource constraint."];
+    const timeline = [
+      { when:"Today, 9:12 AM", title:"Health recalculated", desc:`Score moved to ${sel.health} based on the latest delivery and comms signals.`, tone:"var(--accent)" },
+      { when:"Yesterday", title: sel.status === "ontrack" ? "Milestone cleared" : "Milestone missed", desc: sel.status === "ontrack" ? "Sprint goal met on time." : "Sprint goal slipped by 2 days.", tone: sel.status === "ontrack" ? "var(--success)" : "var(--danger)" },
+      { when:"2 days ago", title:"Scope change detected", desc:"New requirements added in Jira without timeline change.", tone:"var(--warning)" },
+      { when:"4 days ago", title:"Slack channel connected", desc:"Communication signals are now tracked for this project.", tone:"var(--text-tertiary)" },
+    ];
+
+    // ===== AI WORKSPACE =====
+    const aiPrompts = [
+      "Why is Beacon Analytics off track?",
+      "Summarize today's delivery risks",
+      "What should I do about Orion's scope creep?",
+      "Which resource is most overloaded?",
+    ].map(label => ({ label, send: () => this.sendChat(label) }));
+    const chatMsgs = st.chat.map(m => m.who === "ai"
+      ? { text:m.text, dir:"row", align:"flex-start", avBg:"var(--accent)", avFg:"#fff", avText:"AI", bubbleBg:"var(--bg-surface-2)", bubbleFg:"var(--text-primary)", bubbleBorder:"var(--border-subtle)" }
+      : { text:m.text, dir:"row-reverse", align:"flex-end", avBg:"var(--bg-sunken)", avFg:"var(--text-secondary)", avText:"JP", bubbleBg:"var(--accent)", bubbleFg:"#fff", bubbleBorder:"var(--accent)" });
+    const aiSignals = [
+      { label:"Schedule variance", val: sel.status === "ontrack" ? "+1 day" : "−9 days", tone: sel.status === "ontrack" ? "var(--success)" : "var(--danger)" },
+      { label:"Defect slippage", val: sel.status === "ontrack" ? "Low" : "High", tone: sel.status === "ontrack" ? "var(--success)" : "var(--danger)" },
+      { label:"Comms volume", val: sel.status === "ontrack" ? "Healthy" : "−40%", tone: sel.status === "ontrack" ? "var(--success)" : "var(--warning)" },
+      { label:"Delivery confidence", val:`${sel.confidence}%`, tone: sel.confidence > 70 ? "var(--success)" : sel.confidence > 50 ? "var(--warning)" : "var(--danger)" },
+    ];
+    const aiHistory = [
+      { title:"Beacon dependency analysis", when:"Today" },
+      { title:"Orion scope review", when:"Today" },
+      { title:"Q3 portfolio risk scan", when:"Yesterday" },
+      { title:"Resource rebalancing options", when:"2 days ago" },
+    ];
+
+    // ===== ADMIN =====
+    const orgHealthScore = Math.round(this.projects.reduce((s, p) => s + p.health, 0) / this.projects.length);
+    const portfolio = this.projects.map(decorate).map(p => ({ ...p, confColor: p.confidence > 70 ? "var(--success)" : p.confidence > 50 ? "var(--warning)" : "var(--danger)" }));
+    const orgOn = this.projects.filter(p => p.status === "ontrack").length;
+    const orgOff = this.projects.filter(p => p.status === "offtrack").length;
+    const orgHealthBreakdown = [
+      { label:"Delivery health", val:72, tone:"var(--success)" },
+      { label:"Conflict volume", val:58, tone:"var(--warning)" },
+      { label:"Risk level", val:64, tone:"var(--warning)" },
+      { label:"Resource health", val:48, tone:"var(--danger)" },
+      { label:"Client satisfaction", val:81, tone:"var(--success)" },
+    ];
+    const resources = this.resources.map(r => ({ ...r,
+      barColor: r.state === "over" ? "var(--danger)" : r.state === "high" ? "var(--warning)" : r.state === "low" ? "var(--accent-2)" : "var(--success)",
+      stateLabel: r.state === "over" ? "Overloaded" : r.state === "high" ? "Near capacity" : r.state === "low" ? "Underutilized" : "Healthy",
+      stateFg: r.state === "over" ? "var(--danger)" : r.state === "high" ? "var(--warning)" : r.state === "low" ? "var(--accent-2)" : "var(--success)",
+      stateBg: r.state === "over" ? "var(--danger-subtle)" : r.state === "high" ? "var(--warning-subtle)" : r.state === "low" ? "var(--accent-2-subtle)" : "var(--success-subtle)",
+      barWidth: Math.min(r.alloc, 100),
+      over: r.alloc > 100,
+    }));
+    const orgQueue = this.orgQueue.map(o => ({ ...o,
+      impactBg: o.impact === "Critical" ? "var(--danger-subtle)" : o.impact === "High" ? "var(--warning-subtle)" : "var(--bg-sunken)",
+      impactFg: o.impact === "Critical" ? "var(--danger)" : o.impact === "High" ? "var(--warning)" : "var(--text-secondary)",
+      act: () => this.toast("Recommendation routed to owner."),
+    }));
+
+    // ===== SETTINGS =====
+    const members = this.members.map(m => ({ ...m,
+      availFg: m.avail === "Available" ? "var(--success)" : m.avail === "Busy" ? "var(--warning)" : "var(--danger)",
+      availBg: m.avail === "Available" ? "var(--success-subtle)" : m.avail === "Busy" ? "var(--warning-subtle)" : "var(--danger-subtle)",
+    }));
+    const stab = st.settingsTab || "profile";
+    const stBg = (k) => stab === k ? "var(--accent-subtle)" : "transparent";
+    const stFg = (k) => stab === k ? "var(--accent)" : "var(--text-secondary)";
+
+    // ===== ONBOARDING =====
+    const onbConnectors = ["Jira","Slack","Microsoft Teams","GitHub","Outlook","SharePoint","Asana","ClickUp","Trello"].map(n => {
+      const on = st.onbConnected.includes(n);
+      return { name:n, connected:on, initial:n[0],
+        border: on ? "var(--accent)" : "var(--border-subtle)",
+        bg: on ? "var(--accent-subtle)" : "var(--bg-surface)",
+        tileBg: on ? "var(--accent)" : "var(--bg-sunken)",
+        tileFg: on ? "#fff" : "var(--text-secondary)",
+        toggle: () => this.setState(s => ({ onbConnected: s.onbConnected.includes(n) ? s.onbConnected.filter(x => x !== n) : [...s.onbConnected, n] })),
+      };
+    });
+    const onbStep = st.onbStep;
+
+    return {
+      // view flags
+      theme: st.theme, isDark: st.theme === "dark", isLight: st.theme !== "dark",
+      isLogin: st.view === "login", isApp: st.view === "app", isOnboarding: st.view === "onboarding",
+      isDashboard: st.page === "dashboard", roleModalOpen: st.roleModal,
+      isPMDash: st.page === "dashboard" && isPM, isAdminDash: st.page === "dashboard" && !isPM,
+      isProjects: st.page === "projects", isProject: st.page === "project", isAI: st.page === "ai", isSettings: st.page === "settings",
+      userName: this.userName, firstName, roleLabel: isPM ? "Project Manager" : "Organization Admin",
+      greeting, today: new Date().toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"}),
+      workloadSummary: isPM
+        ? `You have ${visibleProjects.length} active projects, ${pendingCount} open action items, and ${conflicts.length} conflicts that need attention today.`
+        : `Portfolio overview across ${this.projects.length} active projects, ${this.orgQueue.length} strategic recommendations pending.`,
+      pageTitle: this.pageTitleFor(),
+      pagePlaceholder: "",
+
+      // nav
+      navDashBg:this.navBg("dashboard"), navDashFg:this.navFg("dashboard"),
+      navProjBg:this.navBg("projects"), navProjFg:this.navFg("projects"),
+      navAIBg:this.navBg("ai"), navAIFg:this.navFg("ai"),
+      navSetBg:this.navBg("settings"), navSetFg:this.navFg("settings"),
+
+      // layout seg
+      lf_bg:segBg("focused"), lf_fg:segFg("focused"),
+      ls_bg:segBg("split"), ls_fg:segFg("split"),
+      lt_bg:segBg("triage"), lt_fg:segFg("triage"),
+      dashCols:L.cols, healthCols:L.healthCols,
+      pKpisCol:L.kpis[0], pKpisRow:L.kpis[1],
+      pActionsCol:L.actions[0], pActionsRow:L.actions[1],
+      pConflictsCol:L.conflicts[0], pConflictsRow:L.conflicts[1],
+      pHealthCol:L.health[0], pHealthRow:L.health[1],
+      pBriefingCol:L.briefing[0], pBriefingRow:L.briefing[1],
+
+      // kpis
+      k1label:"Total projects", k1:visibleProjects.length, k1sub: isPM ? "Assigned to you" : "Across portfolio",
+      k2label:"On track", k2:onTrack, k2sub:"Healthy delivery",
+      k3label:"Off track", k3:offTrack, k3sub:"Need attention",
+      k4label: isPM ? "Open action items" : "Active conflicts", k4: isPM ? pendingCount : conflicts.length, k4sub: isPM ? "Ranked by impact" : "Detected by AI",
+
+      // sections
+      actions, pendingCount, conflicts, healthProjects,
+      briefingMeta:"Generated 7:30 AM · updates live",
+      briefChanged:this.briefing.changed, briefRisks:this.briefing.risks, briefBlockers:this.briefing.blockers, briefNext:this.briefing.next,
+
+      // role modal
+      pmCardBorder: isPM ? "var(--accent)" : "var(--border-subtle)",
+      pmCardBg: isPM ? "var(--accent-subtle)" : "var(--bg-surface)",
+      adCardBorder: !isPM ? "var(--accent)" : "var(--border-subtle)",
+      adCardBg: !isPM ? "var(--accent-2-subtle)" : "var(--bg-surface)",
+
+      toasts: st.toasts,
+
+      // projects module
+      projRows, projSearch: st.projSearch, projSort: st.projSort,
+      fAllFg:fFg("all"), fAllBg:fBg("all"), fOnFg:fFg("ontrack"), fOnBg:fBg("ontrack"), fOffFg:fFg("offtrack"), fOffBg:fBg("offtrack"),
+      cAll:visibleProjects.length, cOn:visibleProjects.filter(p=>p.status==="ontrack").length, cOff:visibleProjects.filter(p=>p.status==="offtrack").length,
+
+      // project detail
+      sel:selDec, selFactors, selConflicts, selActions, detailTabs, detailTab:st.detailTab,
+      dtOverview: st.detailTab==="overview", dtAI: st.detailTab==="ai", dtConflicts: st.detailTab==="conflicts", dtActions: st.detailTab==="actions", dtTimeline: st.detailTab==="timeline",
+      aiConcerns, aiProgressLine, aiUpdatesLine, aiRecos, timeline,
+      hasSelConflicts: selConflicts.length>0, hasSelActions: selActions.length>0, hasConcerns: aiConcerns.length>0,
+
+      // ai workspace
+      chat:chatMsgs, chatInput:st.chatInput, aiPrompts, aiSignals, aiHistory, aiContextProject:sel.name,
+
+      // admin
+      orgHealthScore, portfolio, orgOn, orgOff, orgConflicts:this.conflictData.length, orgTotal:this.projects.length,
+      orgHealthBreakdown, resources, orgQueue,
+
+      // settings
+      members, stProfileBg:stBg("profile"), stProfileFg:stFg("profile"), stMembersBg:stBg("members"), stMembersFg:stFg("members"), stRolesBg:stBg("roles"), stRolesFg:stFg("roles"),
+      stProfile: stab==="profile", stMembers: stab==="members", stRoles: stab==="roles",
+
+      // onboarding
+      onbStep, onbConnectors, onbConnectedCount: st.onbConnected.length,
+      onbWelcome: onbStep===0, onbConnect: onbStep===1, onbSync: onbStep===2, onbBrief: onbStep===3, onbNotBrief: onbStep<3,
+      onbProgress: ((onbStep+1)/4)*100,
+      s0fg: onbStep>=0?"var(--accent)":"var(--text-tertiary)", s1fg: onbStep>=1?"var(--accent)":"var(--text-tertiary)", s2fg: onbStep>=2?"var(--accent)":"var(--text-tertiary)", s3fg: onbStep>=3?"var(--accent)":"var(--text-tertiary)",
+
+      // handlers
+      login: () => this.setState({ view:"app", roleModal:true }),
+      logout: () => this.setState({ view:"login", roleModal:false, page:"dashboard", onboarded:false, onbStep:0 }),
+      toggleTheme: () => { const t = st.theme === "dark" ? "light" : "dark"; try { localStorage.setItem("ih-theme", t); } catch(e){} this.setState({ theme:t }); },
+      openRoleModal: () => this.setState({ roleModal:true }),
+      pickPM: () => this.setState(s => ({ role:"pm", roleModal:false, view: s.onboarded ? "app" : "onboarding", page:"dashboard" })),
+      pickAdmin: () => this.setState(s => ({ role:"admin", roleModal:false, view: s.onboarded ? "app" : "onboarding", page:"dashboard" })),
+      goDashboard: () => this.go("dashboard"),
+      goProjects: () => this.go("projects"),
+      goAI: () => this.go("ai"),
+      goSettings: () => this.go("settings"),
+      setLayoutFocused: () => this.setState({ pmLayout:"focused" }),
+      setLayoutSplit: () => this.setState({ pmLayout:"split" }),
+      setLayoutTriage: () => this.setState({ pmLayout:"triage" }),
+      // projects
+      filterAll: () => this.setState({ projFilter:"all" }),
+      filterOn: () => this.setState({ projFilter:"ontrack" }),
+      filterOff: () => this.setState({ projFilter:"offtrack" }),
+      onSearch: (e) => this.setState({ projSearch: e.target.value }),
+      onSort: (e) => this.setState({ projSort: e.target.value }),
+      // detail
+      setTabOverview: () => this.setState({ detailTab:"overview" }),
+      setDetailTab: (v) => this.setState({ detailTab:v }),
+      backToProjects: () => this.setState({ page:"projects" }),
+      // ai
+      onChatInput: (e) => this.setState({ chatInput: e.target.value }),
+      sendChat: () => this.sendChat(),
+      onChatKey: (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); this.sendChat(); } },
+      sendPrompt: (p) => this.sendChat(p),
+      // settings
+      setSettingsProfile: () => this.setState({ settingsTab:"profile" }),
+      setSettingsMembers: () => this.setState({ settingsTab:"members" }),
+      setSettingsRoles: () => this.setState({ settingsTab:"roles" }),
+      addMember: () => this.toast("Invite sent."),
+      // onboarding
+      nextOnb: () => this.setState(s => ({ onbStep: Math.min(s.onbStep + 1, 3) })),
+      prevOnb: () => this.setState(s => ({ onbStep: Math.max(s.onbStep - 1, 0) })),
+      finishOnb: () => this.setState({ view:"app", page:"dashboard", onboarded:true }),
+      skipOnb: () => this.setState({ view:"app", page:"dashboard", onboarded:true }),
+    };
+  }
+
+  pageTitleFor() {
+    const map = { dashboard: this.state.role === "pm" ? "Dashboard" : "Organization overview", projects:"Projects", ai:"AI Workspace", settings:"Settings", project:"Project detail" };
+    return map[this.state.page] || "Dashboard";
+  }
+}
+</script>
+</body>
+</html>
