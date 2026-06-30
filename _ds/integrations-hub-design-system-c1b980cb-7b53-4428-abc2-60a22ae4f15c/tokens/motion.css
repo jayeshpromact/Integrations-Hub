@@ -1,0 +1,36 @@
+/* ============================================================
+   Integrations Hub — Motion tokens
+   Quick, confident, never bouncy. Standard ease for most things;
+   a gentle spring-ish ease for entrances only.
+   ============================================================ */
+
+:root {
+  --duration-instant: 80ms;  /* @kind other */
+  --duration-fast:    140ms; /* @kind other */ /* hovers, color/bg changes */
+  --duration-base:    200ms; /* @kind other */ /* default, most transitions */
+  --duration-slow:    320ms; /* @kind other */ /* panels, modals, drawers */
+  --duration-slower:  480ms; /* @kind other */ /* large surface entrances */
+
+  /* Easings */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);     /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);  /* @kind other */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);     /* @kind other */
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+
+  /* Composite shorthands */
+  --transition-colors: color var(--duration-fast) var(--ease-standard),
+                        background-color var(--duration-fast) var(--ease-standard),
+                        border-color var(--duration-fast) var(--ease-standard),
+                        box-shadow var(--duration-fast) var(--ease-standard); /* @kind other */
+  --transition-transform: transform var(--duration-base) var(--ease-out); /* @kind other */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms; /* @kind other */
+    --duration-fast: 0ms; /* @kind other */
+    --duration-base: 0ms; /* @kind other */
+    --duration-slow: 0ms; /* @kind other */
+    --duration-slower: 0ms; /* @kind other */
+  }
+}

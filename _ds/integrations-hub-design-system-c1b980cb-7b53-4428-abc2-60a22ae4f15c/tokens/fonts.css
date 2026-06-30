@@ -1,0 +1,6 @@
+/* Integrations Hub — Webfonts
+   Geist (UI / display) + Geist Mono (code, data, numerics)
+   Loaded from Google Fonts. If you self-host, drop the .woff2 files in
+   /assets/fonts and replace the @import below with local @font-face rules. */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');

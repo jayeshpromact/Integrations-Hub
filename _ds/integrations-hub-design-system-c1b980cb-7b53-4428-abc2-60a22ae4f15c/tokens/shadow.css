@@ -1,0 +1,30 @@
+/* ============================================================
+   Integrations Hub — Elevation (shadow) tokens
+   Subtle, cool-tinted shadows. Dark theme uses deeper, flatter
+   shadows + a hairline top highlight (handled per-component).
+   ============================================================ */
+
+:root {
+  /* x y blur spread color — layered for realism, kept restrained */
+  --shadow-xs: 0 1px 2px rgba(16, 20, 34, 0.06);
+  --shadow-sm: 0 1px 2px rgba(16, 20, 34, 0.06), 0 1px 3px rgba(16, 20, 34, 0.08);
+  --shadow-md: 0 2px 4px rgba(16, 20, 34, 0.06), 0 4px 10px rgba(16, 20, 34, 0.08);
+  --shadow-lg: 0 4px 8px rgba(16, 20, 34, 0.06), 0 12px 28px rgba(16, 20, 34, 0.12);
+  --shadow-xl: 0 8px 16px rgba(16, 20, 34, 0.08), 0 24px 56px rgba(16, 20, 34, 0.16);
+
+  /* Accent glow — for primary CTAs / focus emphasis. Use sparingly. */
+  --shadow-accent: 0 4px 14px color-mix(in srgb, var(--primary-600) 35%, transparent);
+
+  /* Inset — wells, pressed states */
+  --shadow-inset: inset 0 1px 2px rgba(16, 20, 34, 0.08);
+}
+
+[data-theme="dark"], .dark {
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.5), 0 16px 32px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 10px 20px rgba(0, 0, 0, 0.55), 0 28px 64px rgba(0, 0, 0, 0.7);
+  --shadow-accent: 0 4px 18px color-mix(in srgb, var(--primary-500) 50%, transparent);
+  --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}

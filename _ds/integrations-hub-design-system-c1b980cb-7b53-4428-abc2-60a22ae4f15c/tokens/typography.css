@@ -1,0 +1,66 @@
+/* ============================================================
+   Integrations Hub — Typography tokens
+   Geist (UI / display) · Geist Mono (code, data, numerics)
+   ============================================================ */
+
+:root {
+  /* Families */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+  --font-display: var(--font-sans);
+
+  /* Weights */
+  --fw-light:    300; /* @kind other */
+  --fw-regular:  400; /* @kind other */
+  --fw-medium:   500; /* @kind other */
+  --fw-semibold: 600; /* @kind other */
+  --fw-bold:     700; /* @kind other */
+  --fw-black:    800; /* @kind other */
+
+  /* Type scale — rem-based, 16px root.
+     step names map to roles, not just sizes. */
+  --text-xs:    0.75rem;   /* 12px — captions, meta, table headers */
+  --text-sm:    0.8125rem; /* 13px — secondary UI, dense tables */
+  --text-base:  0.875rem;  /* 14px — DEFAULT UI body */
+  --text-md:    1rem;      /* 16px — comfortable body / inputs */
+  --text-lg:    1.125rem;  /* 18px — lead, card titles */
+  --text-xl:    1.375rem;  /* 22px — section headings */
+  --text-2xl:   1.75rem;   /* 28px — page titles */
+  --text-3xl:   2.25rem;   /* 36px — display */
+  --text-4xl:   3rem;      /* 48px — hero display */
+  --text-5xl:   3.75rem;   /* 60px — marketing hero */
+
+  /* Line heights */
+  --leading-none:    1;
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.03em;  /* large display */
+  --tracking-tight:   -0.015em; /* headings */
+  --tracking-normal:  0;
+  --tracking-wide:    0.02em;
+  --tracking-caps:    0.06em;   /* uppercase eyebrows / labels */
+
+  /* ---- Semantic text roles ---- */
+  --text-body:        var(--text-base);
+  --text-body-lh:     var(--leading-normal);
+}
+
+/* ============================================================
+   Base element defaults — opt-in by linking styles.css.
+   Scoped to body so it never fights a consumer's reset hard.
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "ss01"; /* Geist stylistic niceties */
+}
+
+code, kbd, pre, samp { font-family: var(--font-mono); }

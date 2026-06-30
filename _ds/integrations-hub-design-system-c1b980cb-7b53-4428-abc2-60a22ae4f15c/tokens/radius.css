@@ -1,0 +1,17 @@
+/* ============================================================
+   Integrations Hub — Radius & border tokens
+   Soft-but-crisp. Controls 8px, cards 12px, pills full.
+   ============================================================ */
+
+:root {
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;    /* DEFAULT — buttons, inputs, chips */
+  --radius-lg:   12px;   /* cards, panels */
+  --radius-xl:   16px;   /* large surfaces, modals */
+  --radius-2xl:  24px;   /* hero / feature cards */
+  --radius-full: 9999px; /* pills, avatars, toggles */
+
+  --border-width:   1px;
+  --border-width-2: 2px;
+}
